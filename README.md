@@ -15,7 +15,7 @@ Nesse projeto será possível buscar informações sobre filmes que você gostar
 * Criar e editar listas de filmes e/ou séries (backlog)
 
 
-## :clapper: Requisitos não funcionais segunda fase
+## :clapper: Requisitos não funcionais
 
 * Consumir a TMDB api como base de informação
 * Utilizar node express
