@@ -25,7 +25,7 @@ Nesse projeto será possível buscar informações sobre filmes que você gostar
 ## :bookmark_tabs: Objetivos de aprendizado
 
 * Exercitar criação de apis node express em typescript (fase 1)
-* Avançar meu aprendizado com bancos relacionais (fase 2)
+* Avançar aprendizado com bancos relacionais (fase 2)
 
 
 
