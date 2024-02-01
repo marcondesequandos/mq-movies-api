@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as express from "express";
+import { config } from "../src/config/config";
 
 const app = express();
 
@@ -23,8 +24,7 @@ app.get("/mDiscover", async (req, res) => {
       timeout: 8000,
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzY4MTU2MWMzZjAxN2QwMDE5MjBmNmI3ZDYwNmY0MCIsInN1YiI6IjY1YjhkZWExOTBmY2EzMDE3YjA2YzE1MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m5eDm2vb_BPMO6E8DmkKnC7Xz9OVzst5ez2g41WNaUo",
+        Authorization: config.token,
       },
     });
     console.log(response.data);
