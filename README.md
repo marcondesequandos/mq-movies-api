@@ -1,4 +1,4 @@
-![Logo of the project](https://img.freepik.com/premium-vector/realistic-cinema-illustration-popcorn-bucket-clapperboard-movie-tape-reel-flying-popcorn-motion_454716-4.jpg)
+![Logo of the project](https://icons.iconarchive.com/icons/yohproject/crayon-cute/256/movies-icon.png)
 
 # MQ Movies API
 > Uma API que oferece uma nova forma de consultar filmes em língua não inglesa, entre outras funcionalidades.
