@@ -5,17 +5,17 @@
 
 Nesse projeto será possível buscar informações sobre filmes que você gostaria de assistir, te auxiliando nessa escolha.
 
-## :bookmark_tabs::clapper: Requisitos funcionais primeira fase (BFF)
+## :clapper: Requisitos funcionais primeira fase (BFF)
 
 * Listar filmes por ordem de popularidade, renda, data de lançamento, nota média. (em desenvolvimento)
 * Filtrar por idioma(s) específico(s), ou excluindo idioma(s) específico(s). (em planejamento)
 
-## :bookmark_tabs::clapper: Requisitos funcionais segunda fase (CRUD)
+## :clapper: Requisitos funcionais segunda fase (CRUD)
 
 * Criar e editar listas (backlog)
 
 
-## :bookmark_tabs::clapper: Requisitos não funcionais segunda fase
+## :clapper: Requisitos não funcionais segunda fase
 
 * Consumir a TMDB api como base de informação
 * Utilizar node express
