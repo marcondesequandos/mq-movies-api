@@ -12,7 +12,7 @@ Nesse projeto será possível buscar informações sobre filmes que você gostar
 
 ## :clapper: Requisitos funcionais segunda fase (CRUD)
 
-* Criar e editar listas (backlog)
+* Criar e editar listas de filmes e/ou séries (backlog)
 
 
 ## :clapper: Requisitos não funcionais segunda fase
@@ -26,6 +26,7 @@ Nesse projeto será possível buscar informações sobre filmes que você gostar
 
 * Exercitar criação de apis node express em typescript (fase 1)
 * Avançar aprendizado com bancos relacionais (fase 2)
+* Aumentar a complexidade do projeto seja em funcionalidades ou arquitetura após as entregas das primeiras fases, permitindo aplicar outros conceitos mais avançados que já aprendi ou venho aprendendo.
 
 
 
