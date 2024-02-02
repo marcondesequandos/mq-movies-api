@@ -1,6 +1,18 @@
 import axios from "axios";
 import * as express from "express";
 import { config } from "../src/config/config";
+import type {
+  ICountry,
+  ICountryData,
+  ILanguage,
+  TContinentCode,
+  TCountryCode,
+  TLanguageCode,
+} from "countries-list";
+
+// Main data and utils
+import { continents, countries, languages } from "countries-list";
+import { Countries } from "../src/utils/countries";
 
 const app = express();
 
@@ -20,17 +32,40 @@ app.get("/mDiscover", async (req, res) => {
     // with_original_language
     // incluir mais com o tempo
 
-    const response = await axios({
-      url,
-      method: "get",
-      timeout: 8000,
-      headers: {
-        accept: "application/json",
-        Authorization: config.token,
-      },
-    });
-    console.log(response.data);
-    res.status(response.status).send(response.data);
+    // const response = await axios({
+    //   url,
+    //   method: "get",
+    //   timeout: 8000,
+    //   headers: {
+    //     accept: "application/json",
+    //     Authorization: config.token,
+    //   },
+    // });
+
+    const response = Object.keys(countries).map((key) => countries[key]);
+    // console.log("=>", Object.entries(countries).flat(Infinity));
+    // console.log(
+    //   "Countries =>",
+    //   Object.keys(countries).map((key) => countries[key])
+    // );
+    console.log(
+      "continents =>",
+      Array.from(Object.entries(continents)).flat(Infinity)
+    );
+    // console.log("continents =>", Object.entries(continents));
+    // console.log(
+    //   "Countries =>",
+    //   Array.from(Object.entries(countries)).flat(Infinity)
+    // );
+
+    const countriesUtils = new Countries();
+
+    const countriesList = countriesUtils.getCountriesByContinent();
+
+    console.log(countriesList);
+
+    res.send(countriesList);
+    // res.status(response.status).send(response.data);
   } catch (error) {
     console.error(error);
   }
