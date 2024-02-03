@@ -32,40 +32,20 @@ app.get("/mDiscover", async (req, res) => {
     // with_original_language
     // incluir mais com o tempo
 
-    // const response = await axios({
-    //   url,
-    //   method: "get",
-    //   timeout: 8000,
-    //   headers: {
-    //     accept: "application/json",
-    //     Authorization: config.token,
-    //   },
-    // });
+    const response = await axios({
+      url,
+      method: "get",
+      timeout: 8000,
+      headers: {
+        accept: "application/json",
+        Authorization: config.token,
+      },
+    });
 
-    const response = Object.keys(countries).map((key) => countries[key]);
-    // console.log("=>", Object.entries(countries).flat(Infinity));
-    // console.log(
-    //   "Countries =>",
-    //   Object.keys(countries).map((key) => countries[key])
-    // );
-    console.log(
-      "continents =>",
-      Array.from(Object.entries(continents)).flat(Infinity)
-    );
-    // console.log("continents =>", Object.entries(continents));
-    // console.log(
-    //   "Countries =>",
-    //   Array.from(Object.entries(countries)).flat(Infinity)
-    // );
+    const apiResponse = response.data.results;
+    // const apiResponse = [...Object.values(response.data)].flat(Infinity);
 
-    const countriesUtils = new Countries();
-
-    const countriesList = countriesUtils.getCountriesByContinent();
-
-    console.log(countriesList);
-
-    res.send(countriesList);
-    // res.status(response.status).send(response.data);
+    res.status(response.status).send(apiResponse);
   } catch (error) {
     console.error(error);
   }
