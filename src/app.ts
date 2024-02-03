@@ -43,9 +43,19 @@ app.get("/mDiscover", async (req, res) => {
     });
 
     const apiResponse = response.data.results;
-    // const apiResponse = [...Object.values(response.data)].flat(Infinity);
 
-    res.status(response.status).send(apiResponse);
+    //esboçando método para filtrar idiomas
+
+    const withoutEn = apiResponse.map((movie) => {
+      if (movie.original_language !== "en") {
+        return {
+          name: movie.original_title,
+          original_language: movie.original_language,
+        };
+      }
+    });
+
+    res.status(response.status).send(withoutEn);
   } catch (error) {
     console.error(error);
   }
