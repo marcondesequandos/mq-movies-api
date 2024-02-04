@@ -13,6 +13,8 @@ import type {
 // Main data and utils
 import { continents, countries, languages } from "countries-list";
 import { Countries } from "../src/utils/countries";
+import { countReset } from "console";
+import { checkServerIdentity } from "tls";
 
 const app = express();
 
@@ -20,7 +22,7 @@ const port = 3000;
 
 app.get("/mDiscover", async (req, res) => {
   try {
-    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=1&sort_by=popularity.desc`;
+    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=2&sort_by=popularity.desc&with_runtime.lte=400`;
 
     //Filtros para trabalhar:
 
@@ -46,15 +48,13 @@ app.get("/mDiscover", async (req, res) => {
 
     //esboçando método para filtrar idiomas
 
-    const withoutEn = apiResponse.map((movie) => {
-      if (movie.original_language !== "en") {
-        return {
-          name: movie.original_title,
-          original_language: movie.original_language,
-        };
-      }
-    });
+    // está retornando null o que excluo, preciso resolver
 
+    const withoutEn = apiResponse.filter(
+      (movie) => movie.original_language !== "en"
+    );
+
+    // res.status(response.status).send(apiResponse);
     res.status(response.status).send(withoutEn);
   } catch (error) {
     console.error(error);

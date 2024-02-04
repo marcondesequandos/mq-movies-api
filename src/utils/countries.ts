@@ -10,11 +10,6 @@ import type {
 // Main data and utils
 import { continents, countries, languages } from "countries-list";
 
-console.log(
-  "Countries =>",
-  Object.keys(countries).map((key) => countries[key])
-);
-
 export class Countries {
   public getCountries() {
     const countriesList = [...Object.values(countries)];
@@ -29,31 +24,28 @@ export class Countries {
       return {
         name: country.name,
         continent: country.continent,
-        languages: country.languages[0],
+        main_language: country.languages[0],
       };
     });
 
-    const continentsObj = {};
+    // const continentsObj = {};
 
-    countriesListLanguages.forEach((country) => {
-      const { continent } = country;
+    // countriesListLanguages.forEach((country) => {
+    //   const { continent } = country;
 
-      // Se o continente ainda não existe no objeto, criamos um array vazio para ele
-      if (!continentsObj[continent]) {
-        continentsObj[continent] = [];
-      }
+    //   if (!continentsObj[continent]) {
+    //     continentsObj[continent] = [];
+    //   }
 
-      // Adicionando o país ao array do continente correspondente
-      continentsObj[continent].push(country);
-    });
+    //   continentsObj[continent].push(country);
+    // });
 
-    // Transformando o objeto em um array de objetos com a estrutura desejada
-    const continentsArray = Object.entries(continentsObj).map(
-      ([continent, countries]) => ({
-        [continent]: countries,
-      })
-    );
+    // const continentsArray = Object.entries(continentsObj).map(
+    //   ([continent, countries]) => ({
+    //     [continent]: countries,
+    //   })
+    // );
 
-    return continentsArray;
+    return countriesListLanguages;
   }
 }
