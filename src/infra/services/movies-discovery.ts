@@ -4,8 +4,9 @@ import { Movie } from "domain/entities/movie";
 import { config } from "../config/config";
 
 export class MoviesDiscoveryService implements DiscoverService {
-  async moviesDiscovery(): Promise<Movie[]> {
-    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=2&sort_by=popularity.desc&with_runtime.lte=400`;
+  private movies: Movie[];
+  async moviesDiscovery(page: number): Promise<Movie[]> {
+    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=${page}&sort_by=popularity.desc&with_runtime.lte=400`;
 
     //Filtros para trabalhar:
 
@@ -17,7 +18,7 @@ export class MoviesDiscoveryService implements DiscoverService {
     // with_original_language
     // incluir mais com o tempo
 
-    const response: AxiosResponse = await axios({
+    const { data }: AxiosResponse = await axios({
       url,
       method: "get",
       timeout: 8000,
@@ -27,6 +28,10 @@ export class MoviesDiscoveryService implements DiscoverService {
       },
     });
 
-    return response.data.results;
+    const { results } = data;
+
+    this.movies = results;
+
+    return this.movies;
   }
 }

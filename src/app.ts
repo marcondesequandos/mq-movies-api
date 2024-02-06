@@ -12,9 +12,11 @@ import type {
 
 // Main data and utils
 import { continents, countries, languages } from "countries-list";
-import { Countries } from "../src/utils/countries";
+import { Countries } from "./application/utils/countries";
 import { countReset } from "console";
 import { checkServerIdentity } from "tls";
+import { GetMoviesController } from "presentation/controllers/GetMovies.controller";
+import { GetMoviesUsecase } from "application/usecases/movies/GetMovies.usecase";
 
 const app = express();
 
@@ -22,7 +24,7 @@ const port = 3000;
 
 app.get("/mDiscover", async (req, res) => {
   try {
-    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=2&sort_by=popularity.desc&with_runtime.lte=400`;
+    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=2&sort_by=popularity.desc&with_runtime.lte=400&append_to_response=page=3,page=4,page=5`;
 
     //Filtros para trabalhar:
 

@@ -1,5 +1,5 @@
 import { Movie } from "domain/entities/movie";
 
 export interface DiscoverService {
-  moviesDiscovery(): Promise<Movie[]>;
+  moviesDiscovery(page: number): Promise<Movie[]>;
 }
