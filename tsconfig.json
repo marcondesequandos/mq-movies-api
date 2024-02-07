@@ -1,18 +1,52 @@
 {
     "compilerOptions": {
         "module": "commonjs",
+        "target": "es2016",
         "moduleResolution": "node",
         "pretty": true,
         "sourceMap": true,
-        "target": "es6",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
         "outDir": "./dist",
-        "baseUrl": "src"
+        "baseUrl": "src",
+        // "rootDir": "./",
+        "paths": {
+            "@/*": [
+                "*"
+            ]
+        },
     },
-    "include": [
-        "src/**/*.ts"
-    ],
+    "ts-node": {
+        "require": [
+            "tsconfig-paths/register"
+        ]
+    },
+    // "include": [
+    //     "src/**/*.ts"
+    // ],
     "exclude": [
         "script",
         "node_modules"
     ]
 }
+// {
+//     "compilerOptions": {
+//         "incremental": true,
+//         "target": "es2020",
+//         "experimentalDecorators": true,
+//         "emitDecoratorMetadata": true,
+//         "module": "commonjs",
+//         "baseUrl": "src",
+//         "outDir": "./dist",
+//         "esModuleInterop": true,
+//         "forceConsistentCasingInFileNames": true,
+//         "strict": true,
+//         "strictNullChecks": false,
+//         "skipLibCheck": true
+//     },
+//     "include": [
+//         "src/**/*.ts"
+//     ],
+// }

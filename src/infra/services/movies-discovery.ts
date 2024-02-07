@@ -1,12 +1,12 @@
-import { DiscoverService } from "application/contracts/services/discover-service.interface";
+import { DiscoverService } from "@/application/contracts";
 import axios, { AxiosResponse } from "axios";
-import { Movie } from "domain/entities/movie";
-import { config } from "../config/config";
+import { Movie } from "@/domain/entities/movie";
+import { config } from "@/config/config";
 
 export class MoviesDiscoveryService implements DiscoverService {
   private movies: Movie[];
   async moviesDiscovery(page: number): Promise<Movie[]> {
-    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=${page}&sort_by=popularity.desc&with_runtime.lte=400`;
+    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=${page}&sort_by=popularity.desc`;
 
     //Filtros para trabalhar:
 
