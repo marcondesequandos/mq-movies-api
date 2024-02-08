@@ -1,12 +1,18 @@
 import { DiscoverService } from "@/application/contracts";
-import axios, { AxiosResponse } from "axios";
+import { MovieParams } from "@/application/contracts";
 import { Movie } from "@/domain/entities/movie";
 import { config } from "@/config/config";
+import axios, { AxiosResponse } from "axios";
 
 export class MoviesDiscoveryService implements DiscoverService {
   private movies: Movie[];
-  async moviesDiscovery(page: number): Promise<Movie[]> {
-    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=${page}&sort_by=popularity.desc`;
+  async moviesDiscovery({
+    page,
+    woLanguage,
+    sort_by,
+    include_adult,
+  }: MovieParams): Promise<Movie[]> {
+    const url = this.getUrl(page, sort_by, include_adult);
 
     //Filtros para trabalhar:
 
@@ -14,7 +20,6 @@ export class MoviesDiscoveryService implements DiscoverService {
     // includeVideo
     // page
     // sort_by (popularity, revenue, primary_release_date, vote_average, vote_count asc & desc)
-    // language
     // with_original_language
     // incluir mais com o tempo
 
@@ -30,8 +35,36 @@ export class MoviesDiscoveryService implements DiscoverService {
 
     const { results } = data;
 
-    this.movies = results;
+    this.movies = woLanguage
+      ? this.woLanguageFilter(woLanguage, results)
+      : results;
 
     return this.movies;
   }
+
+  // método para remover idioma
+
+  private woLanguageFilter = async (language: string, moviesData: Movie[]) => {
+    const woLanguage = moviesData.filter(
+      (movie: Movie) => movie.original_language !== "en"
+    );
+
+    return woLanguage;
+  };
+
+  private getUrl = (
+    page?: number,
+    sort_by?: string,
+    include_adult?: string
+  ): string => {
+    if (!page && !sort_by && !include_adult) {
+      return "https://api.themoviedb.org/3/discover/movie";
+    } else {
+      const params = [];
+      if (page) params.push(`page=${page}`);
+      if (sort_by) params.push(`sort_by=${sort_by}`);
+      if (include_adult) params.push(`include_adult=${include_adult}`);
+      return `https://api.themoviedb.org/3/discover/movie?${params.join("&")}`;
+    }
+  };
 }

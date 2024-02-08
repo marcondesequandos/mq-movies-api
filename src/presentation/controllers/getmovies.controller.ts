@@ -6,13 +6,30 @@ import {
   internalServerError,
   ok,
 } from "presentation/contracts/Http";
-import { GetMoviesViewModel } from "presentation/view-models/GetMovies.view-model";
+import { GetMoviesViewModel } from "presentation/view-models/getmovies.view-model";
+
+export type GetMoviesParams = {
+  page;
+  woLanguage;
+  sort_by;
+  include_adult;
+};
 
 export class GetMoviesController implements HttpController {
   constructor(private readonly useCase: GetMoviesUsecase) {}
-  async handle(page: number): Promise<HttpResponse<GetMoviesViewModel[]>> {
+  async handle({
+    page,
+    woLanguage,
+    sort_by,
+    include_adult,
+  }: GetMoviesParams): Promise<HttpResponse<GetMoviesViewModel[]>> {
     try {
-      const moviesData = await this.useCase.run(page);
+      const moviesData = await this.useCase.run({
+        page,
+        woLanguage,
+        sort_by,
+        include_adult,
+      });
       const response = GetMoviesViewModel.map(moviesData);
       return ok(response);
     } catch (e) {

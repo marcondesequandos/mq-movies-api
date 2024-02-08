@@ -6,11 +6,7 @@ export type MovieParams = {
   sort_by?: string;
   include_adult?: string;
 };
-export interface DiscoverService {
-  moviesDiscovery({
-    page,
-    woLanguage,
-    sort_by,
-    include_adult,
-  }: MovieParams): Promise<Movie[]>;
+
+export interface GetMovies {
+  run(data?: any): Promise<Movie[]>;
 }

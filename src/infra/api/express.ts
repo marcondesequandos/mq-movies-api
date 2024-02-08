@@ -4,4 +4,4 @@ import { moviesDiscovery } from "./routes/discover";
 export const app: Express = express();
 app.use(express.json());
 
-app.use("/discover", moviesDiscovery);
+app.use("/discover/", moviesDiscovery);
