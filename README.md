@@ -7,12 +7,12 @@ Nesse projeto será possível buscar informações sobre filmes que você gostar
 
 ## :clapper: Requisitos funcionais primeira fase (BFF)
 
-* Listar filmes por ordem de popularidade, renda, data de lançamento, nota média. (em desenvolvimento)
-* Filtrar por idioma(s) específico(s), ou excluindo idioma(s) específico(s). (em planejamento)
+* Listar filmes por ordem de popularidade, renda, data de lançamento, nota média. (finalizado)
+* Filtro que exclui idioma específico. (ok)
 
 ## :clapper: Requisitos funcionais segunda fase (CRUD)
 
-* Criar e editar listas de filmes e/ou séries (backlog)
+* Criar e editar listas de filmes e/ou séries (em planejamento)
 
 
 ## :clapper: Requisitos não funcionais
