@@ -29,7 +29,7 @@ export class MoviesDiscoveryService implements DiscoverService {
       timeout: 8000,
       headers: {
         accept: "application/json",
-        Authorization: config.token,
+        Authorization: process.env.token,
       },
     });
 
@@ -64,7 +64,7 @@ export class MoviesDiscoveryService implements DiscoverService {
       if (page) params.push(`page=${page}`);
       if (sort_by) params.push(`sort_by=${sort_by}`);
       if (include_adult) params.push(`include_adult=${include_adult}`);
-      return `${config.apiUrl}?${params.join("&")}`;
+      return `${process.env.apiURL}?${params.join("&")}`;
     }
   };
 }
