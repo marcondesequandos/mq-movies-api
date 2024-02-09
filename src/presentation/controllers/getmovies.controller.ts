@@ -1,4 +1,4 @@
-import { GetMoviesUsecase } from "application/contracts";
+import { GetMoviesUsecaseInterface } from "application/contracts";
 
 import { HttpController } from "presentation/contracts/Controller";
 import {
@@ -16,7 +16,7 @@ export type GetMoviesParams = {
 };
 
 export class GetMoviesController implements HttpController {
-  constructor(private readonly useCase: GetMoviesUsecase) {}
+  constructor(private readonly useCase: GetMoviesUsecaseInterface) {}
   async handle({
     page,
     woLanguage,

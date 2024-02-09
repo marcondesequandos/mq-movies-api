@@ -1,3 +1,3 @@
-import { GetMovies } from "domain/usecases/GetMovies";
+import { GetMovies } from "domain/usecases/getmovies-usecase.interface";
 
-export type GetMoviesUsecase = GetMovies;
+export type GetMoviesUsecaseInterface = GetMovies;

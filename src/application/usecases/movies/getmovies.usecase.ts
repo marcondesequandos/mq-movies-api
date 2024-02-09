@@ -1,10 +1,10 @@
-import { GetMovies } from "@/domain/usecases/getmovies-usecase.interface";
 import { Movie } from "domain/entities/movie";
 import { MovieParams } from "@/domain/usecases/getmovies-usecase.interface";
 
 import { MoviesDiscoveryService } from "infra/services/movies-discovery";
+import { GetMoviesUsecaseInterface } from "@/application/contracts";
 
-export class GetMoviesUsecase implements GetMovies {
+export class GetMoviesUsecase implements GetMoviesUsecaseInterface {
   private moviesData: Movie[];
   constructor(private readonly moviesService: MoviesDiscoveryService) {}
 

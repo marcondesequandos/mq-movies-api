@@ -58,13 +58,13 @@ export class MoviesDiscoveryService implements DiscoverService {
     include_adult?: string
   ): string => {
     if (!page && !sort_by && !include_adult) {
-      return "https://api.themoviedb.org/3/discover/movie";
+      return config.apiUrl;
     } else {
       const params = [];
       if (page) params.push(`page=${page}`);
       if (sort_by) params.push(`sort_by=${sort_by}`);
       if (include_adult) params.push(`include_adult=${include_adult}`);
-      return `https://api.themoviedb.org/3/discover/movie?${params.join("&")}`;
+      return `${config.apiUrl}?${params.join("&")}`;
     }
   };
 }
