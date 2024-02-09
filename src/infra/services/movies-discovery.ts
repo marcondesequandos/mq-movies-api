@@ -1,7 +1,6 @@
 import { DiscoverService } from "@/application/contracts";
 import { MovieParams } from "@/application/contracts";
 import { Movie } from "@/domain/entities/movie";
-import { config } from "@/config/config";
 import axios, { AxiosResponse } from "axios";
 
 export class MoviesDiscoveryService implements DiscoverService {
@@ -58,7 +57,7 @@ export class MoviesDiscoveryService implements DiscoverService {
     include_adult?: string
   ): string => {
     if (!page && !sort_by && !include_adult) {
-      return config.apiUrl;
+      return process.env.apiURL;
     } else {
       const params = [];
       if (page) params.push(`page=${page}`);
