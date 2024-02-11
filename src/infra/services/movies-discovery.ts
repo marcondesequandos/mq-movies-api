@@ -1,6 +1,6 @@
 import { DiscoverService } from "@/application/contracts";
 import { MovieParams } from "@/application/contracts";
-import { Movie } from "@/domain/entities/movie";
+import { Movie } from "@/domain/movie/entity/movie";
 import axios, { AxiosResponse } from "axios";
 
 export class MoviesDiscoveryService implements DiscoverService {
