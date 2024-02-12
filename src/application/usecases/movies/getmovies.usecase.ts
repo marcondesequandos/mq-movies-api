@@ -1,5 +1,5 @@
-import { Movie } from "@/domain/movie/entity/movie";
-import { MovieParams } from "@/domain/movie/usecases/getmovies-usecase.interface";
+import { Movie } from "@/application/entities/movie/movie";
+import { MovieParams } from "@/application/contracts";
 
 import { MoviesDiscoveryService } from "infra/services/movies-discovery";
 import { GetMoviesUsecaseInterface } from "@/application/contracts";

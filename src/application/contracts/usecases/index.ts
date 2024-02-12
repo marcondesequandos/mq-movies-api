@@ -1,1 +1,1 @@
-export * from "./getmovies-usecase.interface";
+export * from "./movies/getmovies-usecase.interface";

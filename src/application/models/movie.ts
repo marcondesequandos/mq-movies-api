@@ -1,5 +1,5 @@
-import { GenreId } from "@/domain/movies/entities/genres_id";
-import { Movie } from "@/domain/movie/entity/movie";
+import { GenreId } from "../entities/movie/genres_id";
+import { Movie } from "../entities/movie/movie";
 
 export type MoviesModel = Movie;
 

@@ -1,4 +1,4 @@
-import { Movie } from "@/domain/movie/entity/movie";
+import { Movie } from "../movie/movie";
 
 export type MovieList = {
   id: string;
