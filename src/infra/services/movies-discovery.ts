@@ -1,6 +1,7 @@
 import { DiscoverService } from "@/application/contracts";
 import { MovieParams } from "@/application/contracts";
-import { Movie } from "@/domain/movie/entity/movie";
+import { Movie } from "@/application/entities/movie/movie";
+
 import axios, { AxiosResponse } from "axios";
 
 export class MoviesDiscoveryService implements DiscoverService {
@@ -20,7 +21,6 @@ export class MoviesDiscoveryService implements DiscoverService {
     // page
     // sort_by (popularity, revenue, primary_release_date, vote_average, vote_count asc & desc)
     // with_original_language
-    // incluir mais com o tempo
 
     const { data }: AxiosResponse = await axios({
       url,
@@ -28,7 +28,7 @@ export class MoviesDiscoveryService implements DiscoverService {
       timeout: 8000,
       headers: {
         accept: "application/json",
-        Authorization: process.env.token,
+        Authorization: process.env.API_KEY,
       },
     });
 
@@ -57,13 +57,13 @@ export class MoviesDiscoveryService implements DiscoverService {
     include_adult?: string
   ): string => {
     if (!page && !sort_by && !include_adult) {
-      return process.env.apiURL;
+      return process.env.API_URL;
     } else {
       const params = [];
       if (page) params.push(`page=${page}`);
       if (sort_by) params.push(`sort_by=${sort_by}`);
       if (include_adult) params.push(`include_adult=${include_adult}`);
-      return `${process.env.apiURL}?${params.join("&")}`;
+      return `${process.env.API_URL}?${params.join("&")}`;
     }
   };
 }
