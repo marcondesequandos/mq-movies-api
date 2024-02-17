@@ -5,6 +5,7 @@ import {
   PrimaryKey,
   Table,
 } from "sequelize-typescript";
+import { ListModel } from "./list.model";
 
 @Table({
   tableName: "users",
@@ -12,7 +13,7 @@ import {
 })
 export class UserModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, field: "user_id" })
   id: string;
 
   @Column({ allowNull: false })
@@ -21,6 +22,6 @@ export class UserModel extends Model {
   @Column({ allowNull: false })
   email: string;
 
-  @HasMany(() => MoviesListModel)
-  lists: MoviesListsModel[];
+  @HasMany(() => ListModel)
+  lists: ListModel[];
 }
