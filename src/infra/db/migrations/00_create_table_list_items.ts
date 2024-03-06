@@ -1,4 +1,6 @@
+import { ListModel } from "@/infra/modules/user/list.model";
 import { UserModel } from "@/infra/modules/user/user.model";
+import { stringify } from "querystring";
 import { DataTypes, Sequelize } from "sequelize";
 import { MigrationFn } from "umzug";
 
@@ -11,15 +13,19 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       primaryKey: true,
       allowNull: false,
     },
-    user_id: {
+    list_id: {
       type: DataTypes.STRING(255),
       allowNull: false,
       references: {
-        model: UserModel,
+        model: ListModel,
         key: "id",
       },
     },
-    email: {
+    adult: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    backdrop_path: {
       type: DataTypes.STRING(255),
       allowNull: false,
     },
