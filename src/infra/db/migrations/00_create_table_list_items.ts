@@ -57,6 +57,22 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.STRING(255),
       allowNull: false,
     },
+    first_air_date: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    title: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    video: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
   });
 };
 
