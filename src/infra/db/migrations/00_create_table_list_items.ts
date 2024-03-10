@@ -77,6 +77,14 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.NUMBER,
       allowNull: false,
     },
+    vote_count: {
+      type: DataTypes.NUMBER,
+      allowNull: false,
+    },
+    item_type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 };
 
