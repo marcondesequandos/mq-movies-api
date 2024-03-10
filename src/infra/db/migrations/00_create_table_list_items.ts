@@ -73,6 +73,10 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
+    vote_average: {
+      type: DataTypes.NUMBER,
+      allowNull: false,
+    },
   });
 };
 
