@@ -1,13 +1,9 @@
 import { ListModel } from "@/infra/modules/user/list.model";
-import { UserModel } from "@/infra/modules/user/user.model";
-import { stringify } from "querystring";
 import { DataTypes, Sequelize } from "sequelize";
 import { MigrationFn } from "umzug";
 
-// criando migrations pelo que vi é necessário criar apenas em list e não em user o relacionamento entre eles já que users hasmany lists
-
 export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
-  await sequelize.getQueryInterface().createTable("lists", {
+  await sequelize.getQueryInterface().createTable("list_items", {
     id: {
       type: DataTypes.STRING(255),
       primaryKey: true,
@@ -55,11 +51,11 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     release_date: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     first_air_date: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     title: {
       type: DataTypes.STRING(255),

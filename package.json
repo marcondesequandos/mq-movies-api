@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src",
     "dev": "nodemon ./src/infra/api/server.ts ",
-    "start": "node ./dist/infra/api/server.js"
+    "start": "node ./dist/infra/api/server.js",
+    "migrate": "node -r ts-node/register/transpile-only ./src/infra/db/config/migrator-cli.ts"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +35,7 @@
     "countries-list": "^3.0.6",
     "express": "^4.18.2",
     "sequelize": "^6.37.0",
-    "sequelize-typescript": "^2.1.6"
+    "sequelize-typescript": "^2.1.6",
+    "sqlite3": "^5.1.7"
   }
 }
