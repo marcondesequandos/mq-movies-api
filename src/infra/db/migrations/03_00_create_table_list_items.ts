@@ -13,7 +13,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.STRING(255),
       allowNull: false,
       references: {
-        model: ListModel,
+        model: "ListModel",
         key: "id",
       },
     },

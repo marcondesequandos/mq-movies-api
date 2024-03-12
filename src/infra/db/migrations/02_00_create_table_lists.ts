@@ -13,11 +13,11 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.STRING(255),
       allowNull: false,
       references: {
-        model: UserModel,
+        model: "UserModel",
         key: "id",
       },
     },
-    email: {
+    name: {
       type: DataTypes.STRING(255),
       allowNull: false,
     },
