@@ -1,4 +1,4 @@
-import { Movie } from "@/domain/movie/entity/movie";
+import { Movie } from "@/application/entities/movie/movie";
 
 export type MovieParams = {
   page?: number;

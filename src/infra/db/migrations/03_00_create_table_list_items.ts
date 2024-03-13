@@ -1,4 +1,4 @@
-import { ListModel } from "@/infra/modules/user/list.model";
+import { ListModel } from "@/infra/modules/repositories/user/list.model";
 import { DataTypes, Sequelize } from "sequelize";
 import { MigrationFn } from "umzug";
 
