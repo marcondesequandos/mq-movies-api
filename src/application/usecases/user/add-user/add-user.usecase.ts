@@ -5,8 +5,8 @@ import UserRepositoryInterface from "@/infra/modules/repositories/user/user.repo
 
 export default class AddUserUseCase implements AddUserUseCaseInterface {
   constructor(private readonly userRepository: UserRepositoryInterface) {}
-  run(data: AddUserInputDto): Promise<User> {
-    const user = this.createUser(input);
+  async run(data: AddUserInputDto): Promise<User> {
+    const user = this.createUser(data);
     await this.userRepository.create(user);
 
     return user;
@@ -14,7 +14,7 @@ export default class AddUserUseCase implements AddUserUseCaseInterface {
 
   private createUser(input: AddUserInputDto): User {
     return new User({
-      
+
     })
   }
 }

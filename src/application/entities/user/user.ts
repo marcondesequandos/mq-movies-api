@@ -1,8 +1,10 @@
 import { List } from "./list";
 
-export type User = {
+type UserProps = {
   id: string;
   name: string;
   email: string;
   lists: List[];
 };
+
+export default class User extends
