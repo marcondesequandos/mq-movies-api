@@ -1,16 +1,35 @@
-import { Address } from "cluster";
 import { List } from "./list";
+import BaseEntity from "../base.entity";
+import AggregateRoot from "../aggregate-root.interface";
+import Id from "../value-object/id.value-object";
 
 type UserProps = {
-  id: string;
+  id: Id;
   name: string;
   email: string;
   lists: List[];
+  createdAt?: Date;
+  updatedAt?: Date;
 };
 
-export default class User {
-  private _id: string;
+export default class User extends BaseEntity implements AggregateRoot {
   private _name: string;
-  private _email: Address;
+  private _email: string;
   private _lists: List[];
+
+  constructor(props: UserProps) {
+    super(props.id, props.createdAt, props.updatedAt);
+  }
+
+  get name(): string {
+    return this.name;
+  }
+
+  get email(): string {
+    return this._email;
+  }
+
+  get lists(): Array<List> {
+    return this._lists;
+  }
 }
