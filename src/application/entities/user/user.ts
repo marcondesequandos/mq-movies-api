@@ -32,4 +32,8 @@ export default class User extends BaseEntity implements AggregateRoot {
   get lists(): Array<List> {
     return this._lists;
   }
+
+  set name(name: string) {
+    this._name = name;
+  }
 }
