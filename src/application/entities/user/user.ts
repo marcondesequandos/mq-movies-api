@@ -22,7 +22,7 @@ export default class User extends BaseEntity implements AggregateRoot {
   }
 
   get name(): string {
-    return this.name;
+    return this._name;
   }
 
   get email(): string {
