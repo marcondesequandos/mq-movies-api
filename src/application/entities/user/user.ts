@@ -19,6 +19,9 @@ export default class User extends BaseEntity implements AggregateRoot {
 
   constructor(props: UserProps) {
     super(props.id, props.createdAt, props.updatedAt);
+    this._name = props.name;
+    this._email = props.email;
+    this._lists = props.lists;
   }
 
   get name(): string {
