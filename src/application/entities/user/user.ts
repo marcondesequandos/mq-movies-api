@@ -1,7 +1,8 @@
-import { List } from "./list";
+
 import BaseEntity from "../base.entity";
 import AggregateRoot from "../aggregate-root.interface";
 import Id from "../value-object/id.value-object";
+import List from "./list";
 
 type UserProps = {
   id: Id;
@@ -11,6 +12,8 @@ type UserProps = {
   createdAt?: Date;
   updatedAt?: Date;
 };
+
+// precisa verificar aqui, não sei se o user ja vai ser criado com lists...
 
 export default class User extends BaseEntity implements AggregateRoot {
   private _name: string;
