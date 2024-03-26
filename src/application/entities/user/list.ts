@@ -44,10 +44,4 @@ export default class List extends BaseEntity implements AggregateRoot {
   set name(name: string) {
     this._name = name;
   }
-
-  set items(item: ListItem) {
-    this._items.push(item);
-  }
-
-  // remove item
 }
