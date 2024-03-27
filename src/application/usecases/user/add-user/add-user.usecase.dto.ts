@@ -1,3 +1,5 @@
+import { ListType } from "@/application/entities/user/list";
+
 export interface AddUserInputDto {
   id?: string;
   name: string;
@@ -5,10 +7,11 @@ export interface AddUserInputDto {
   lists: {
     id: string;
     name: string;
-    movies: {
+    type: ListType;
+    items: {
       adult: boolean;
       backdrop_path: string;
-      id: number;
+      id: string;
       original_language: string;
       original_title: string;
       overview: string;

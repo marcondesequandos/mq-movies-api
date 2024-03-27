@@ -1,7 +1,7 @@
 import AggregateRoot from "../aggregate-root.interface";
 import BaseEntity from "../base.entity";
 import Id from "../value-object/id.value-object";
-import { ListItem } from "./list-item";
+import ListItem from "./list-item";
 
 export enum ListType {
   MOVIE = "movies",
