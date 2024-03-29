@@ -41,9 +41,7 @@ export default class AddUserUseCase implements AddUserUseCaseInterface {
                   release_date: item.release_date,
                   title: item.title,
                   vote_average: item.vote_average,
-                  vote_count: item.vote_count,
-                  createdAt: new Date(),
-                  updatedAt: new Date(),
+                  vote_count: item.vote_count
                 })
             ),
           })

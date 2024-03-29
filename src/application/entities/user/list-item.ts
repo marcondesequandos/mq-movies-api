@@ -19,8 +19,8 @@ type ListItemProps = {
   video?: boolean;
   vote_average: number;
   vote_count: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 };
 
 export default class ListItem extends BaseEntity implements AggregateRoot {
