@@ -6,7 +6,7 @@ import {
   internalServerError,
   ok,
 } from "presentation/contracts/Http";
-import { GetMoviesViewModel } from "presentation/view-models/getmovies.view-model";
+import { GetMoviesViewModel } from "presentation/view-models/movies/getmovies.view-model";
 
 export type GetMoviesParams = {
   page;
