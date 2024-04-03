@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express";
-import { makeGetMovies } from "@/main/factories/getmovies.factory";
+import { makeGetMovies } from "@/main/factories/movies/getmovies.factory";
 import {
   HttpResponse,
   internalServerError,
 } from "@/presentation/contracts/Http";
-import { GetMoviesViewModel } from "@/presentation/view-models/getmovies.view-model";
+import { GetMoviesViewModel } from "@/presentation/view-models/movies/getmovies.view-model";
 export const moviesDiscovery = express.Router();
 
 moviesDiscovery.get(
