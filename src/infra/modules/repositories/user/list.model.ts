@@ -9,6 +9,7 @@ import {
 } from "sequelize-typescript";
 import { UserModel } from "./user.model";
 import { ListItemModel } from "./list-item.model";
+import { DataTypes } from "sequelize";
 
 @Table({
   tableName: "lists",
@@ -16,14 +17,14 @@ import { ListItemModel } from "./list-item.model";
 })
 export class ListModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false, field: "list_id" })
+  @Column({ allowNull: false, field: "list_id", type: DataTypes.STRING })
   id: string;
 
   @ForeignKey(() => UserModel)
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataTypes.STRING })
   user_id: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataTypes.STRING })
   name: string;
 
   @BelongsTo(() => UserModel)
