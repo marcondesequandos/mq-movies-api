@@ -1,4 +1,3 @@
-import AddUserUseCase from "@/application/usecases/user/add-user/add-user.usecase";
 import { makeAddUser } from "@/main/factories/users/add-user.factory";
 import {
   HttpResponse,
@@ -15,6 +14,7 @@ addUser.post(
     res: Response
   ): Promise<HttpResponse<AddUserViewModel>> => {
     const addUserController = makeAddUser();
+    console.log(req.body);
 
     try {
       const payload = {
@@ -24,8 +24,10 @@ addUser.post(
       };
 
       const output = await addUserController.handle(payload);
+      console.log(output);
       res.send(output);
     } catch (e) {
+      console.log(e);
       return internalServerError();
     }
   }

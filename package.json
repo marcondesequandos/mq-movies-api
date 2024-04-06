@@ -2,7 +2,7 @@
   "name": "movies-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/infra/api/server.js",
   "engines": {
     "node": "18"
   },
