@@ -25,4 +25,10 @@ export class UserModel extends Model {
 
   @HasMany(() => ListModel)
   lists: ListModel[];
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  createdAt: Date;
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  updatedAt: Date;
 }
