@@ -8,6 +8,7 @@ import { ListModel } from "./list.model";
 
 export default class UserRepository implements UserRepositoryInterface {
   async create(user: User): Promise<void> {
+    console.log("repository called");
     await UserModel.create(
       {
         id: user.id,

@@ -1,4 +1,4 @@
-import { User } from "@/application/entities/user/user";
+import User from "@/application/entities/user/user";
 
 export interface UserGateway {
   add(user: User): Promise<void>;

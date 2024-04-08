@@ -1,6 +1,5 @@
 node_modules
 README_template.md
-config.ts
 dist
 .env
 database.sqlite

@@ -7,8 +7,18 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/dist/infra/api/server.js",
+      "name": "Debug Typescript",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/infra/api/server.ts",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register"
+      ],
+      "console": "integratedTerminal",
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js"
       ]

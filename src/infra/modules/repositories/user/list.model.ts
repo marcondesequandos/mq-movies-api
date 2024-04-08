@@ -5,12 +5,23 @@ import {
   HasMany,
   Model,
   PrimaryKey,
+  Scopes,
   Table,
 } from "sequelize-typescript";
 import { UserModel } from "./user.model";
 import { ListItemModel } from "./list-item.model";
 import { DataTypes } from "sequelize";
 
+@Scopes(() => ({
+  cast: {
+    include: [
+      {
+        model: UserModel,
+        through: { attributes: [] },
+      },
+    ],
+  },
+}))
 @Table({
   tableName: "lists",
   timestamps: false,

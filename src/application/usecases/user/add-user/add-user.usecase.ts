@@ -9,6 +9,7 @@ import List from "@/application/entities/user/list";
 export default class AddUserUseCase implements AddUserUseCaseInterface {
   constructor(private readonly _userRepository: UserRepositoryInterface) {}
   async run(data: AddUserInputDto): Promise<User> {
+    console.log("usecase run called");
     const user = this.createUser(data);
     await this._userRepository.create(user);
 

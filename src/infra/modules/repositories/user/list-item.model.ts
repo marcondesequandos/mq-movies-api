@@ -3,11 +3,22 @@ import {
   ForeignKey,
   Model,
   PrimaryKey,
+  Scopes,
   Table,
 } from "sequelize-typescript";
 import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
 
+@Scopes(() => ({
+  cast: {
+    include: [
+      {
+        model: ListModel,
+        through: { attributes: [] },
+      },
+    ],
+  },
+}))
 @Table({
   tableName: "list_items",
   timestamps: false,

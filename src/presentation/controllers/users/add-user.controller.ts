@@ -8,15 +8,14 @@ import {
 } from "@/presentation/contracts/Http";
 import { AddUserViewModel } from "@/presentation/view-models/users/add-user.view-model";
 
-type AddUserParams = {
-  payload: AddUserInputDto;
-};
-
 export class AddUserController implements HttpController {
   constructor(private readonly useCase: AddUserUseCaseInterface) {}
-  async handle(input: AddUserParams): Promise<HttpResponse<AddUserViewModel>> {
+  async handle(
+    input: AddUserInputDto
+  ): Promise<HttpResponse<AddUserViewModel>> {
     try {
-      const user = await this.useCase.run(input.payload);
+      console.log("controller handle called");
+      const user = await this.useCase.run(input);
       const response = AddUserViewModel.map(user);
       return ok(response);
     } catch (e) {
