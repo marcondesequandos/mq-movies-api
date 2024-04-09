@@ -1,4 +1,5 @@
 import {
+  BelongsTo,
   Column,
   ForeignKey,
   Model,
@@ -8,12 +9,14 @@ import {
 } from "sequelize-typescript";
 import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
+import { UserModel } from "./user.model";
 
 @Scopes(() => ({
   cast: {
     include: [
       {
         model: ListModel,
+        UserModel,
         through: { attributes: [] },
       },
     ],
@@ -31,6 +34,9 @@ export class ListItemModel extends Model {
   @ForeignKey(() => ListModel)
   @Column({ allowNull: false, type: DataTypes.STRING })
   list_id: string;
+
+  @BelongsTo(() => ListModel)
+  List: ListModel;
 
   @Column({ allowNull: false, type: DataTypes.BOOLEAN })
   adult: boolean;

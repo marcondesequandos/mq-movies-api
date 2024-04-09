@@ -12,26 +12,22 @@ import express, { Request, Response } from "express";
 
 export const addUser = express.Router();
 
-addUser.post(
-  "/",
-  async (
-    req: Request,
-    res: Response
-  ): Promise<HttpResponse<AddUserViewModel>> => {
-    // const addUserController = makeAddUser();
-    console.log(req.body);
+addUser.post("/", async function (req: Request, res: Response): Promise<
+  HttpResponse<AddUserViewModel>
+> {
+  const addUserController = makeAddUser();
+  console.log(req.body);
 
-    try {
-      const userRepository = new UserRepository();
-      const userUseCase = new AddUserUseCase(userRepository);
-      const addUserController = new AddUserController(userUseCase);
+  try {
+    // const userRepository = new UserRepository();
+    // const userUseCase = new AddUserUseCase(userRepository);
+    // const addUserController = new AddUserController(userUseCase);
 
-      const output = await addUserController.handle(req.body);
-      console.log(output);
-      res.send(output);
-    } catch (e) {
-      console.log(e);
-      return internalServerError();
-    }
+    const output = await addUserController.handle(req.body);
+    console.log(output);
+    res.send(output);
+  } catch (e) {
+    console.log(e);
+    return internalServerError();
   }
-);
+});

@@ -17,6 +17,7 @@ import { DataTypes } from "sequelize";
     include: [
       {
         model: UserModel,
+        hasMany: ListItemModel,
         through: { attributes: [] },
       },
     ],

@@ -1,4 +1,4 @@
-import { GenreIdModel, MoviesModel } from "application/models/movie";
+import { GenreIdModel, MoviesModel } from "application/models/movies/movie";
 
 export class GetMoviesViewModel {
   adult: boolean;

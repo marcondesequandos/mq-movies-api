@@ -7,30 +7,26 @@ import {
 import { GetMoviesViewModel } from "@/presentation/view-models/movies/getmovies.view-model";
 export const moviesDiscovery = express.Router();
 
-moviesDiscovery.get(
-  "/",
-  async (
-    req: Request,
-    res: Response
-  ): Promise<HttpResponse<GetMoviesViewModel[]>> => {
-    console.log("something");
-    const getMoviesController = makeGetMovies();
+moviesDiscovery.get("/", async function (req: Request, res: Response): Promise<
+  HttpResponse<GetMoviesViewModel[]>
+> {
+  console.log("something");
+  const getMoviesController = makeGetMovies();
 
-    const page = parseInt(req.query.page as string, 10);
-    const woLanguage = req.query.wol;
-    const sort_by = req.query.sort_by;
-    const include_adult = req.query.include_adult;
+  const page = parseInt(req.query.page as string, 10);
+  const woLanguage = req.query.wol;
+  const sort_by = req.query.sort_by;
+  const include_adult = req.query.include_adult;
 
-    try {
-      const output: GetMoviesViewModel[] = await getMoviesController.handle({
-        page,
-        woLanguage,
-        sort_by,
-        include_adult,
-      });
-      res.send(output);
-    } catch (e) {
-      return internalServerError();
-    }
+  try {
+    const output: GetMoviesViewModel[] = await getMoviesController.handle({
+      page,
+      woLanguage,
+      sort_by,
+      include_adult,
+    });
+    res.send(output);
+  } catch (e) {
+    return internalServerError();
   }
-);
+});
