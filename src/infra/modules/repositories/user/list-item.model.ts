@@ -11,17 +11,6 @@ import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
 import { UserModel } from "./user.model";
 
-@Scopes(() => ({
-  cast: {
-    include: [
-      {
-        model: ListModel,
-        UserModel,
-        through: { attributes: [] },
-      },
-    ],
-  },
-}))
 @Table({
   tableName: "list_items",
   timestamps: false,
@@ -37,6 +26,13 @@ export class ListItemModel extends Model {
 
   @BelongsTo(() => ListModel)
   List: ListModel;
+
+  @ForeignKey(() => UserModel)
+  @Column({ allowNull: false, type: DataTypes.STRING })
+  user_id: string;
+
+  @BelongsTo(() => ListModel)
+  User: UserModel;
 
   @Column({ allowNull: false, type: DataTypes.BOOLEAN })
   adult: boolean;

@@ -12,17 +12,6 @@ import { UserModel } from "./user.model";
 import { ListItemModel } from "./list-item.model";
 import { DataTypes } from "sequelize";
 
-@Scopes(() => ({
-  cast: {
-    include: [
-      {
-        model: UserModel,
-        hasMany: ListItemModel,
-        through: { attributes: [] },
-      },
-    ],
-  },
-}))
 @Table({
   tableName: "lists",
   timestamps: false,

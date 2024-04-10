@@ -7,6 +7,7 @@ import {
 } from "sequelize-typescript";
 import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
+import { ListItemModel } from "./list-item.model";
 
 @Table({
   tableName: "users",
@@ -25,6 +26,9 @@ export class UserModel extends Model {
 
   @HasMany(() => ListModel)
   lists: ListModel[];
+
+  @HasMany(() => ListItemModel)
+  items: ListItemModel[];
 
   @Column({ allowNull: false, type: DataTypes.DATE })
   createdAt: Date;
