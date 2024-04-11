@@ -31,8 +31,8 @@ export class UserModel extends Model {
   items: ListItemModel[];
 
   @Column({ allowNull: false, type: DataTypes.DATE })
-  createdAt: Date;
+  created_at: Date;
 
   @Column({ allowNull: false, type: DataTypes.DATE })
-  updatedAt: Date;
+  updated_at: Date;
 }

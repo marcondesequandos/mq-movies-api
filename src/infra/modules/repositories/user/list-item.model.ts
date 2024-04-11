@@ -10,6 +10,7 @@ import {
 import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
 import { UserModel } from "./user.model";
+import User from "@/application/entities/user/user";
 
 @Table({
   tableName: "list_items",
@@ -31,7 +32,7 @@ export class ListItemModel extends Model {
   @Column({ allowNull: false, type: DataTypes.STRING })
   user_id: string;
 
-  @BelongsTo(() => ListModel)
+  @BelongsTo(() => UserModel)
   User: UserModel;
 
   @Column({ allowNull: false, type: DataTypes.BOOLEAN })
@@ -81,4 +82,10 @@ export class ListItemModel extends Model {
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   item_type: string;
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  created_at: Date;
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  updated_at: Date;
 }

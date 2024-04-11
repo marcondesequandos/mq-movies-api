@@ -7,6 +7,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     id: {
       type: DataTypes.STRING(255),
       primaryKey: true,
+      field: "list_id",
       allowNull: false,
     },
     user_id: {

@@ -5,6 +5,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
   await sequelize.getQueryInterface().createTable("users", {
     id: {
       type: DataTypes.STRING(255),
+      field: "user_id",
       primaryKey: true,
       allowNull: false,
     },

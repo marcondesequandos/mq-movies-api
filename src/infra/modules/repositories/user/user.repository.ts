@@ -9,19 +9,20 @@ import { ListModel } from "./list.model";
 export default class UserRepository implements UserRepositoryInterface {
   async create(user: User): Promise<void> {
     console.log("repository called");
+    console.log(user.createdAt);
     await UserModel.create(
       {
-        id: user.id,
+        id: user.id.id,
         name: user.name,
         email: user.email,
         lists: user.lists.map((list: List) => ({
-          id: list.id,
+          id: list.id.id,
           name: list.name,
           type: list.type,
           items: list.items.map((item: ListItem) => ({
             adult: item.adult,
             backdrop_path: item.backdrop_path,
-            id: item.id,
+            id: item.id.id,
             original_language: item.original_language,
             original_title: item.original_title,
             overview: item.overview,
@@ -31,10 +32,14 @@ export default class UserRepository implements UserRepositoryInterface {
             title: item.title,
             vote_average: item.vote_average,
             vote_count: item.vote_count,
+            created_at: item.createdAt,
+            updated_at: item.updatedAt,
           })),
-          createdAt: user.createdAt,
-          updatedAt: user.updatedAt,
+          created_at: user.createdAt,
+          updated_at: user.updatedAt,
         })),
+        created_at: user.createdAt,
+        updated_at: user.updatedAt,
       },
       {
         include: [ListModel, ListItemModel],

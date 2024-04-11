@@ -1,4 +1,3 @@
-
 import BaseEntity from "../base.entity";
 import AggregateRoot from "../aggregate-root.interface";
 import Id from "../value-object/id.value-object";

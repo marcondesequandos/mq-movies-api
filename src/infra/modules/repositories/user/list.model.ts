@@ -33,4 +33,10 @@ export class ListModel extends Model {
 
   @HasMany(() => ListItemModel)
   list_item: ListItemModel[];
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  created_at: Date;
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  updated_at: Date;
 }
