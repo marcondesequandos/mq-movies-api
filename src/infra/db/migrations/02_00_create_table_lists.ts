@@ -7,19 +7,23 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     id: {
       type: DataTypes.STRING(255),
       primaryKey: true,
-      field: "list_id",
+      field: "lists_id",
       allowNull: false,
     },
-    user_id: {
+    users_id: {
       type: DataTypes.STRING(255),
       allowNull: false,
       references: {
-        model: "UserModel",
-        key: "id",
+        model: "users",
+        key: "users_id",
       },
     },
     name: {
       type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.STRING(8),
       allowNull: false,
     },
     created_at: {

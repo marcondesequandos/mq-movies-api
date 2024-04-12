@@ -12,10 +12,11 @@ import { ListItemModel } from "./list-item.model";
 @Table({
   tableName: "users",
   timestamps: false,
+  schema: null,
 })
 export class UserModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false, field: "user_id", type: DataTypes.STRING })
+  @Column({ allowNull: false, field: "users_id", type: DataTypes.STRING })
   id: string;
 
   @Column({ allowNull: false, type: DataTypes.STRING })

@@ -11,6 +11,7 @@ export default class AddUserUseCase implements AddUserUseCaseInterface {
   async run(data: AddUserInputDto): Promise<User> {
     console.log("usecase run called");
     const user = this.createUser(data);
+    console.log("createdUser =>", user);
     await this._userRepository.create(user);
 
     return user;
@@ -24,7 +25,7 @@ export default class AddUserUseCase implements AddUserUseCaseInterface {
       lists: input.lists.map(
         (list) =>
           new List({
-            id: new Id(list.id) || new Id(),
+            id: new Id(list.id),
             name: list.name,
             type: list.type,
             items: list.items.map(
@@ -32,7 +33,7 @@ export default class AddUserUseCase implements AddUserUseCaseInterface {
                 new ListItem({
                   adult: item.adult,
                   backdrop_path: item.backdrop_path,
-                  id: new Id(item.id) || new Id(),
+                  id: new Id(item.id),
                   original_language: item.original_language,
                   original_title: item.original_title,
                   overview: item.overview,

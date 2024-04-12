@@ -15,6 +15,7 @@ import User from "@/application/entities/user/user";
 @Table({
   tableName: "list_items",
   timestamps: false,
+  schema: null,
 })
 export class ListItemModel extends Model {
   @PrimaryKey
@@ -23,14 +24,14 @@ export class ListItemModel extends Model {
 
   @ForeignKey(() => ListModel)
   @Column({ allowNull: false, type: DataTypes.STRING })
-  list_id: string;
+  lists_id: string;
 
   @BelongsTo(() => ListModel)
   List: ListModel;
 
   @ForeignKey(() => UserModel)
   @Column({ allowNull: false, type: DataTypes.STRING })
-  user_id: string;
+  users_id: string;
 
   @BelongsTo(() => UserModel)
   User: UserModel;

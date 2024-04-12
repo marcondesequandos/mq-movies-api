@@ -15,24 +15,28 @@ import { DataTypes } from "sequelize";
 @Table({
   tableName: "lists",
   timestamps: false,
+  schema: null,
 })
 export class ListModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false, field: "list_id", type: DataTypes.STRING })
+  @Column({ allowNull: false, field: "lists_id", type: DataTypes.STRING })
   id: string;
 
   @ForeignKey(() => UserModel)
   @Column({ allowNull: false, type: DataTypes.STRING })
-  user_id: string;
-
-  @Column({ allowNull: false, type: DataTypes.STRING })
-  name: string;
+  users_id: string;
 
   @BelongsTo(() => UserModel)
   User: UserModel;
 
+  @Column({ allowNull: false, type: DataTypes.STRING })
+  name: string;
+
+  @Column({ allowNull: false, type: DataTypes.STRING })
+  type: string;
+
   @HasMany(() => ListItemModel)
-  list_item: ListItemModel[];
+  list_items: ListItemModel[];
 
   @Column({ allowNull: false, type: DataTypes.DATE })
   created_at: Date;
