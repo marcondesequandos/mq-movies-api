@@ -15,18 +15,28 @@ import { DataTypes } from "sequelize";
 @Table({
   tableName: "lists",
   timestamps: false,
-  schema: null,
 })
 export class ListModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false, field: "lists_id", type: DataTypes.STRING })
-  id: string;
+  @Column({
+    allowNull: false,
+    field: "lists_id",
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  })
+  id: number;
 
   @ForeignKey(() => UserModel)
-  @Column({ allowNull: false, type: DataTypes.STRING })
-  users_id: string;
+  @Column({ allowNull: true, type: DataTypes.STRING })
+  users_id: number;
 
-  @BelongsTo(() => UserModel)
+  @BelongsTo(() => UserModel, {
+    foreignKey: "users_id",
+    as: "users",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
   User: UserModel;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
@@ -35,8 +45,8 @@ export class ListModel extends Model {
   @Column({ allowNull: false, type: DataTypes.STRING })
   type: string;
 
-  @HasMany(() => ListItemModel)
-  list_items: ListItemModel[];
+  @HasMany(() => ListItemModel, { as: "list_items" })
+  list_items?: ListItemModel[];
 
   @Column({ allowNull: false, type: DataTypes.DATE })
   created_at: Date;

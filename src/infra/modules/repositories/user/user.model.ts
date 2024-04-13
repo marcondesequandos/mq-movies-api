@@ -8,16 +8,22 @@ import {
 import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
 import { ListItemModel } from "./list-item.model";
+import internal from "stream";
 
 @Table({
   tableName: "users",
   timestamps: false,
-  schema: null,
 })
 export class UserModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false, field: "users_id", type: DataTypes.STRING })
-  id: string;
+  @Column({
+    allowNull: false,
+    field: "users_id",
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  })
+  id: number;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   name: string;
@@ -25,7 +31,7 @@ export class UserModel extends Model {
   @Column({ allowNull: false, type: DataTypes.STRING })
   email: string;
 
-  @HasMany(() => ListModel)
+  @HasMany(() => ListModel, { as: "lists" })
   lists: ListModel[];
 
   @HasMany(() => ListItemModel)

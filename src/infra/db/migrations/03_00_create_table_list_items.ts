@@ -6,24 +6,29 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
   await sequelize.getQueryInterface().createTable("list_items", {
     id: {
       type: DataTypes.STRING(255),
+      field: "list_item_id",
       primaryKey: true,
       allowNull: false,
     },
     users_id: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
       references: {
         model: "users",
         key: "users_id",
       },
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
     },
     lists_id: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
       references: {
         model: "lists",
         key: "lists_id",
       },
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
     },
     adult: {
       type: DataTypes.BOOLEAN,
@@ -83,10 +88,6 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     vote_count: {
       type: DataTypes.NUMBER,
-      allowNull: false,
-    },
-    item_type: {
-      type: DataTypes.STRING,
       allowNull: false,
     },
     created_at: {

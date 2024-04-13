@@ -1,10 +1,9 @@
 import BaseEntity from "../base.entity";
 import AggregateRoot from "../aggregate-root.interface";
-import Id from "../value-object/id.value-object";
 import List from "./list";
 
 type UserProps = {
-  id: Id;
+  id?: number;
   name: string;
   email: string;
   lists: List[];

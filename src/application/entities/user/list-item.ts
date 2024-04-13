@@ -1,11 +1,10 @@
 import AggregateRoot from "../aggregate-root.interface";
 import BaseEntity from "../base.entity";
-import Id from "../value-object/id.value-object";
 
 type ListItemProps = {
+  id?: number;
   adult: boolean;
   backdrop_path: string;
-  id: Id;
   original_language: string;
   original_title?: string;
   original_name?: string;

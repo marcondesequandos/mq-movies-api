@@ -15,26 +15,41 @@ import User from "@/application/entities/user/user";
 @Table({
   tableName: "list_items",
   timestamps: false,
-  schema: null,
 })
 export class ListItemModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false, type: DataTypes.STRING })
-  id: string;
-
-  @ForeignKey(() => ListModel)
-  @Column({ allowNull: false, type: DataTypes.STRING })
-  lists_id: string;
-
-  @BelongsTo(() => ListModel)
-  List: ListModel;
+  @Column({
+    allowNull: false,
+    field: "list_items_id",
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  })
+  id: number;
 
   @ForeignKey(() => UserModel)
-  @Column({ allowNull: false, type: DataTypes.STRING })
-  users_id: string;
+  @Column({ allowNull: true, type: DataTypes.INTEGER })
+  users_id: number;
 
-  @BelongsTo(() => UserModel)
+  @BelongsTo(() => UserModel, {
+    foreignKey: "users_id",
+    as: "users",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
   User: UserModel;
+
+  @ForeignKey(() => ListModel)
+  @Column({ allowNull: true, type: DataTypes.INTEGER })
+  lists_id: number;
+
+  @BelongsTo(() => ListModel, {
+    foreignKey: "lists_id",
+    as: "lists",
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  List: ListModel;
 
   @Column({ allowNull: false, type: DataTypes.BOOLEAN })
   adult: boolean;
@@ -80,9 +95,6 @@ export class ListItemModel extends Model {
 
   @Column({ allowNull: false, type: DataTypes.NUMBER })
   vote_count: number;
-
-  @Column({ allowNull: false, type: DataTypes.STRING })
-  item_type: string;
 
   @Column({ allowNull: false, type: DataTypes.DATE })
   created_at: Date;

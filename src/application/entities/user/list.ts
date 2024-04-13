@@ -1,6 +1,5 @@
 import AggregateRoot from "../aggregate-root.interface";
 import BaseEntity from "../base.entity";
-import Id from "../value-object/id.value-object";
 import ListItem from "./list-item";
 
 export enum ListType {
@@ -9,10 +8,10 @@ export enum ListType {
 }
 
 type ListProps = {
-  id: Id;
+  id?: number;
   name: string;
   type: ListType;
-  items: ListItem[];
+  items?: ListItem[];
   createdAt?: Date;
   updatedAt?: Date;
 };

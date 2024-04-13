@@ -1,10 +1,9 @@
 import List from "@/application/entities/user/list";
 import ListItem from "@/application/entities/user/list-item";
 import User from "@/application/entities/user/user";
-import Id from "@/application/entities/value-object/id.value-object";
 
 export class AddUserViewModel {
-  id?: Id;
+  id?: number;
   name?: string;
   email?: string;
   lists?: List[];
