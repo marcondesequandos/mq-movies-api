@@ -5,13 +5,14 @@ import { MigrationFn } from "umzug";
 export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
   await sequelize.getQueryInterface().createTable("lists", {
     id: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER,
       field: "lists_id",
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true,
     },
     users_id: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: "users",
