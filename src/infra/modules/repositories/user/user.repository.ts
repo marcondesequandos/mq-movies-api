@@ -5,7 +5,7 @@ import List from "@/application/entities/user/list";
 import { ListModel } from "./list.model";
 
 export default class UserRepository implements UserRepositoryInterface {
-  async create(user: User): Promise<void> {
+  async create(user: User): Promise<any> {
     console.log("repository called");
     console.log(user.createdAt);
     const createdUser = await UserModel.create({
@@ -15,7 +15,7 @@ export default class UserRepository implements UserRepositoryInterface {
       updated_at: user.updatedAt,
     });
 
-    await Promise.all(
+    const createdList = await Promise.all(
       user.lists.map((list: List) =>
         ListModel.create({
           users_id: createdUser.id,
@@ -26,6 +26,13 @@ export default class UserRepository implements UserRepositoryInterface {
         })
       )
     );
+
+    const userAndListId = {
+      userId: createdUser.id,
+      listId: createdList.map((list) => list.id),
+    };
+
+    return userAndListId;
   }
   find(id: string): Promise<User> {
     throw new Error("Method not implemented.");

@@ -14,7 +14,6 @@ export class AddUserController implements HttpController {
     input: AddUserInputDto
   ): Promise<HttpResponse<AddUserViewModel>> {
     try {
-      console.log("controller handle called");
       const user = await this.useCase.run(input);
       const response = AddUserViewModel.map(user);
       return ok(response);
