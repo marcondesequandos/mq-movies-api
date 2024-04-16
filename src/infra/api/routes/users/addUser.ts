@@ -12,7 +12,6 @@ addUser.post("/", async function (req: Request, res: Response): Promise<
   HttpResponse<AddUserViewModel>
 > {
   const addUserController = makeAddUser();
-  console.log(req.body);
 
   try {
     const output = await addUserController.handle(req.body);

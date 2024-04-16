@@ -10,7 +10,6 @@ export const moviesDiscovery = express.Router();
 moviesDiscovery.get("/", async function (req: Request, res: Response): Promise<
   HttpResponse<GetMoviesViewModel[]>
 > {
-  console.log("something");
   const getMoviesController = makeGetMovies();
 
   const page = parseInt(req.query.page as string, 10);

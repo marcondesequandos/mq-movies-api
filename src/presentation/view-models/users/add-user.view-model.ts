@@ -1,29 +1,28 @@
-import List from "@/application/entities/user/list";
-import ListItem from "@/application/entities/user/list-item";
+import { ListType } from "@/application/entities/user/list";
 import User from "@/application/entities/user/user";
-import { AddUserOutputDto } from "@/application/usecases/user/add-user/add-user.usecase.dto";
 
 export class AddUserViewModel {
   id?: number;
   name?: string;
   email?: string;
-  lists?: List[];
+  lists?: {
+    id?: number;
+    name: string;
+    type: ListType;
+  }[];
 
-  static map(user: AddUserOutputDto): AddUserViewModel {
+  static map(user: User): AddUserViewModel {
     if (!user) return {};
 
-    const userModel = new User({
+    const userModel = {
       name: user.name,
       email: user.email,
-      lists: user.lists.map(
-        (list) =>
-          new List({
-            id: list.id,
-            name: list.name,
-            type: list.type,
-          })
-      ),
-    });
+      lists: user.lists.map((list) => ({
+        id: list.id,
+        name: list.name,
+        type: list.type,
+      })),
+    };
     return userModel;
   }
 }
