@@ -3,13 +3,13 @@ import BaseEntity from "../base.entity";
 
 type ListItemProps = {
   id?: number;
-  adult: boolean;
+  adult?: boolean;
   backdrop_path: string;
-  original_language: string;
+  original_language?: string;
   original_title?: string;
   original_name?: string;
-  overview: string;
-  popularity: number;
+  overview?: string;
+  popularity?: number;
   poster_path: string;
   release_date?: string;
   first_air_date?: string;
@@ -17,19 +17,19 @@ type ListItemProps = {
   name?: string;
   video?: boolean;
   vote_average: number;
-  vote_count: number;
+  vote_count?: number;
   createdAt?: Date;
   updatedAt?: Date;
 };
 
 export default class ListItem extends BaseEntity implements AggregateRoot {
-  private _adult: boolean;
+  private _adult?: boolean;
   private _backdrop_path: string;
-  private _original_language: string;
+  private _original_language?: string;
   private _original_title?: string;
   private _original_name?: string;
-  private _overview: string;
-  private _popularity: number;
+  private _overview?: string;
+  private _popularity?: number;
   private _poster_path: string;
   private _release_date?: string;
   private _first_air_date?: string;
@@ -37,7 +37,7 @@ export default class ListItem extends BaseEntity implements AggregateRoot {
   private _name?: string;
   private _video?: boolean;
   private _vote_average: number;
-  private _vote_count: number;
+  private _vote_count?: number;
 
   constructor(props: ListItemProps) {
     super(props.id, props.createdAt, props.updatedAt);

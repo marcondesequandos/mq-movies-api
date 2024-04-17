@@ -28,7 +28,7 @@ export class ListItemModel extends Model {
   id: number;
 
   @ForeignKey(() => UserModel)
-  @Column({ allowNull: true, type: DataTypes.INTEGER })
+  @Column({ allowNull: false, type: DataTypes.INTEGER })
   users_id: number;
 
   @BelongsTo(() => UserModel, {
@@ -40,7 +40,7 @@ export class ListItemModel extends Model {
   User: UserModel;
 
   @ForeignKey(() => ListModel)
-  @Column({ allowNull: true, type: DataTypes.INTEGER })
+  @Column({ allowNull: false, type: DataTypes.INTEGER })
   lists_id: number;
 
   @BelongsTo(() => ListModel, {
@@ -51,13 +51,13 @@ export class ListItemModel extends Model {
   })
   List: ListModel;
 
-  @Column({ allowNull: false, type: DataTypes.BOOLEAN })
+  @Column({ allowNull: true, type: DataTypes.BOOLEAN })
   adult: boolean;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   backdrop_path: string;
 
-  @Column({ allowNull: false, type: DataTypes.STRING })
+  @Column({ allowNull: true, type: DataTypes.STRING })
   original_language: string;
 
   @Column({ allowNull: true, type: DataTypes.STRING })
@@ -66,10 +66,10 @@ export class ListItemModel extends Model {
   @Column({ allowNull: true, type: DataTypes.STRING })
   original_name?: string;
 
-  @Column({ allowNull: false, type: DataTypes.STRING })
+  @Column({ allowNull: true, type: DataTypes.STRING })
   overview: string;
 
-  @Column({ allowNull: false, type: DataTypes.NUMBER })
+  @Column({ allowNull: true, type: DataTypes.NUMBER })
   popularity: number;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
@@ -93,7 +93,7 @@ export class ListItemModel extends Model {
   @Column({ allowNull: false, type: DataTypes.NUMBER })
   vote_average: number;
 
-  @Column({ allowNull: false, type: DataTypes.NUMBER })
+  @Column({ allowNull: true, type: DataTypes.NUMBER })
   vote_count: number;
 
   @Column({ allowNull: false, type: DataTypes.DATE })

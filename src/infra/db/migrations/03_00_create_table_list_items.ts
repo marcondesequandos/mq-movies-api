@@ -13,7 +13,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     users_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: "users",
         key: "users_id",
@@ -23,7 +23,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     lists_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: "lists",
         key: "lists_id",
@@ -33,7 +33,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     adult: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
     },
     backdrop_path: {
       type: DataTypes.STRING(255),
@@ -41,7 +41,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     original_language: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     original_title: {
       type: DataTypes.STRING(255),
@@ -53,11 +53,11 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     overview: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     popularity: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     poster_path: {
       type: DataTypes.STRING(255),

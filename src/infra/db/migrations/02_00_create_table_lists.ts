@@ -13,7 +13,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     users_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: "users",
         key: "users_id",

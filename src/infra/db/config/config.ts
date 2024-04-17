@@ -8,7 +8,7 @@ import {
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: join(__dirname, "../../../../database.sqlite"),
+  storage: join(__dirname, "../../../database.sqlite"),
 });
 
 export async function initDB() {
@@ -16,6 +16,7 @@ export async function initDB() {
   // sequelize.options.logging = console.log;
 
   try {
+    await console.log("dir", join(__dirname, "../../../database.sqlite"));
     await sequelize.sync();
     console.log("Database synchronization successful");
     return "Database initialized successfully";

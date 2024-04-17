@@ -28,7 +28,7 @@ export class ListModel extends Model {
   id: number;
 
   @ForeignKey(() => UserModel)
-  @Column({ allowNull: true, type: DataTypes.STRING })
+  @Column({ allowNull: false, type: DataTypes.STRING })
   users_id: number;
 
   @BelongsTo(() => UserModel, {

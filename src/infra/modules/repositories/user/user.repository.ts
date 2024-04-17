@@ -6,24 +6,28 @@ import { ListModel } from "./list.model";
 
 export default class UserRepository implements UserRepositoryInterface {
   async create(user: User): Promise<any> {
-    const createdUser = await UserModel.create({
-      name: user.name,
-      email: user.email,
-      created_at: user.createdAt,
-      updated_at: user.updatedAt,
-    });
+    try {
+      const createdUser = await UserModel.create({
+        name: user.name,
+        email: user.email,
+        created_at: user.createdAt,
+        updated_at: user.updatedAt,
+      });
 
-    await Promise.all(
-      user.lists.map((list: List) =>
-        ListModel.create({
-          users_id: createdUser.id,
-          name: list.name,
-          type: list.type,
-          created_at: list.createdAt,
-          updated_at: list.updatedAt,
-        })
-      )
-    );
+      await Promise.all(
+        user.lists.map((list: List) =>
+          ListModel.create({
+            users_id: createdUser.id,
+            name: list.name,
+            type: list.type,
+            created_at: list.createdAt,
+            updated_at: list.updatedAt,
+          })
+        )
+      );
+    } catch (e) {
+      console.log("DB Error:", e);
+    }
   }
   find(id: string): Promise<User> {
     throw new Error("Method not implemented.");
