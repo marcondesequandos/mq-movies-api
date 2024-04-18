@@ -20,7 +20,7 @@ export class ListItemModel extends Model {
   @PrimaryKey
   @Column({
     allowNull: false,
-    field: "list_items_id",
+    field: "list_item_id",
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,

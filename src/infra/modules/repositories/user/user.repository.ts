@@ -5,7 +5,7 @@ import List from "@/application/entities/user/list";
 import { ListModel } from "./list.model";
 
 export default class UserRepository implements UserRepositoryInterface {
-  async create(user: User): Promise<any> {
+  async create(user: User): Promise<void> {
     try {
       const createdUser = await UserModel.create({
         name: user.name,
@@ -26,7 +26,7 @@ export default class UserRepository implements UserRepositoryInterface {
         )
       );
     } catch (e) {
-      console.log("DB Error:", e);
+      console.log("Error creating User:", e);
     }
   }
   find(id: string): Promise<User> {

@@ -13,10 +13,13 @@ export const sequelize = new Sequelize({
 
 export async function initDB() {
   await sequelize.addModels([UserModel, ListModel, ListItemModel]);
-  // sequelize.options.logging = console.log;
+  sequelize.options.logging = console.log;
 
   try {
-    await console.log("dir", join(__dirname, "../../../database.sqlite"));
+    await console.log(
+      "dirpath =>",
+      join(__dirname, "../../../database.sqlite")
+    );
     await sequelize.sync();
     console.log("Database synchronization successful");
     return "Database initialized successfully";

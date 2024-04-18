@@ -34,9 +34,6 @@ export class UserModel extends Model {
   @HasMany(() => ListModel, { as: "lists" })
   lists: ListModel[];
 
-  @HasMany(() => ListItemModel)
-  items: ListItemModel[];
-
   @Column({ allowNull: false, type: DataTypes.DATE })
   created_at: Date;
 
