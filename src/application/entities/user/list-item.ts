@@ -3,6 +3,7 @@ import BaseEntity from "../base.entity";
 
 type ListItemProps = {
   id?: number;
+  type: string;
   adult?: boolean;
   backdrop_path: string;
   original_language?: string;
@@ -23,6 +24,7 @@ type ListItemProps = {
 };
 
 export default class ListItem extends BaseEntity implements AggregateRoot {
+  private type: string;
   private _adult?: boolean;
   private _backdrop_path: string;
   private _original_language?: string;
