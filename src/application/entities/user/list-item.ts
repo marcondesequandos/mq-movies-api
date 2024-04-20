@@ -24,40 +24,21 @@ type ListItemProps = {
 };
 
 export default class ListItem extends BaseEntity implements AggregateRoot {
-  private type: string;
   private _adult?: boolean;
   private _backdrop_path: string;
   private _original_language?: string;
-  private _original_title?: string;
-  private _original_name?: string;
   private _overview?: string;
-  private _popularity?: number;
   private _poster_path: string;
-  private _release_date?: string;
-  private _first_air_date?: string;
-  private _title?: string;
-  private _name?: string;
-  private _video?: boolean;
   private _vote_average: number;
-  private _vote_count?: number;
 
   constructor(props: ListItemProps) {
     super(props.id, props.createdAt, props.updatedAt);
     this._adult = props.adult;
     this._backdrop_path = props.backdrop_path;
     this._original_language = props.original_language;
-    this._original_title = props.original_title;
-    this._original_name = props.original_name;
     this._overview = props.overview;
-    this._popularity = props.popularity;
     this._poster_path = props.poster_path;
-    this._release_date = props.release_date;
-    this._first_air_date = props.first_air_date;
-    this._title = props.title;
-    this._name = props.name;
-    this._video = props.video;
     this._vote_average = props.vote_average;
-    this._vote_count = props.vote_count;
   }
 
   public get adult(): boolean {
