@@ -24,7 +24,9 @@ type ListItemProps = {
 };
 
 export default class ListItem extends BaseEntity implements AggregateRoot {
-  private _adult?: boolean;
+  private _name: string;
+  private _original_name: string;
+  
   private _backdrop_path: string;
   private _original_language?: string;
   private _overview?: string;
@@ -33,7 +35,6 @@ export default class ListItem extends BaseEntity implements AggregateRoot {
 
   constructor(props: ListItemProps) {
     super(props.id, props.createdAt, props.updatedAt);
-    this._adult = props.adult;
     this._backdrop_path = props.backdrop_path;
     this._original_language = props.original_language;
     this._overview = props.overview;
