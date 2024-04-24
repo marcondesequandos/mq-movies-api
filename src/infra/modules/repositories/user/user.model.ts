@@ -7,7 +7,7 @@ import {
 } from "sequelize-typescript";
 import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
-import { ListItemModel } from "./list-item.model";
+import { ListItemModel } from "./movie.model";
 import internal from "stream";
 
 @Table({

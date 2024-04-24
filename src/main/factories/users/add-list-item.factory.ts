@@ -1,4 +1,4 @@
-import AddListItemUseCase from "@/application/usecases/user/add-list-item/add-list-item.usecase";
+import AddListItemUseCase from "@/application/usecases/user/list-item/add-list-item/add-list-item.usecase";
 import ListItemRepository from "@/infra/modules/repositories/user/list-item.repository";
 import { Controller } from "@/presentation/contracts/Controller";
 import { AddListItemController } from "@/presentation/controllers/users/add-list-item.controller";

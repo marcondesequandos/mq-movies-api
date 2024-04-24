@@ -1,9 +1,10 @@
-import { GenreIdModel, MoviesModel } from "application/models/movies/movie";
+import { GenreId } from "@/application/entities/movie/genres_id";
+import { Movie } from "@/application/entities/movie/movie";
 
 export class GetMoviesViewModel {
   adult: boolean;
   backdrop_path: string;
-  genre_ids: GenreIdModel[];
+  genre_ids: GenreId[];
   id: number;
   original_language: string;
   original_title: string;
@@ -16,7 +17,7 @@ export class GetMoviesViewModel {
   vote_average: number;
   vote_count: number;
 
-  static map(movies: MoviesModel[]): GetMoviesViewModel[] {
+  static map(movies: Movie[]): GetMoviesViewModel[] {
     const moviesModel = movies.map((movie) => {
       return {
         adult: movie.adult,

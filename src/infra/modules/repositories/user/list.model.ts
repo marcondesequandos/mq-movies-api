@@ -9,7 +9,7 @@ import {
   Table,
 } from "sequelize-typescript";
 import { UserModel } from "./user.model";
-import { ListItemModel } from "./list-item.model";
+import { ListItemModel } from "./movie.model";
 import { DataTypes } from "sequelize";
 
 @Table({

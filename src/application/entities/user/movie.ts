@@ -11,7 +11,7 @@ type MovieProps = {
   poster_path: string;
   vote_average: number;
   createdAt?: Date;
-  updatedAt: Date;
+  updatedAt?: Date;
 };
 
 export default class Movie extends ListItem implements AggregateRoot {
