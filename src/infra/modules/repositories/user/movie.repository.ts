@@ -2,7 +2,6 @@ import { MovieModel } from "./movie.model";
 import { AddMovieInputDto } from "@/main/dtos/users/add-movie.dto";
 import MovieRepositoryInterface from "./contracts/movie.repository-contract";
 import Movie from "@/application/entities/user/movie";
-import { createMovie } from "@/application/helpers/create-entity/create-movie.helper";
 
 export default class ListItemRepository implements MovieRepositoryInterface {
   async create(input: AddMovieInputDto): Promise<Movie> {
@@ -20,7 +19,7 @@ export default class ListItemRepository implements MovieRepositoryInterface {
         updated_at: input.updatedAt,
       });
 
-      const movie = createMovie.run(movieFromDb);
+      const movie = movieFromDb.toJSON();
 
       return movie;
     } catch (e) {
