@@ -11,13 +11,13 @@ import { DataTypes } from "sequelize";
 
 @Table({
   tableName: "list_items",
-  timestamps: false,
+  timestamps: true,
 })
 export class MovieModel extends Model {
   @PrimaryKey
   @Column({
     allowNull: false,
-    field: "list_item_id",
+    field: "movie_id",
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -56,10 +56,4 @@ export class MovieModel extends Model {
 
   @Column({ allowNull: false, type: DataTypes.NUMBER })
   vote_average: number;
-
-  @Column({ allowNull: false, type: DataTypes.DATE })
-  created_at: Date;
-
-  @Column({ allowNull: false, type: DataTypes.DATE })
-  updated_at: Date;
 }

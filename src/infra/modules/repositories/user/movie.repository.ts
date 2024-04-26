@@ -15,8 +15,6 @@ export default class ListItemRepository implements MovieRepositoryInterface {
         release_date: input.release_date,
         title: input.title,
         vote_average: input.vote_average,
-        created_at: input.createdAt,
-        updated_at: input.updatedAt,
       });
 
       const movie = movieFromDb.toJSON();
