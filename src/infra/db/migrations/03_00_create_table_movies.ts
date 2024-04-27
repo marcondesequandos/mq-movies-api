@@ -11,16 +11,6 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       allowNull: false,
       autoIncrement: true,
     },
-    users_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "users",
-        key: "users_id",
-      },
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
-    },
     lists_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -30,10 +20,6 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
-    },
-    adult: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
     },
     backdrop_path: {
       type: DataTypes.STRING(255),
@@ -47,18 +33,6 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    original_name: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-    },
-    overview: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-    },
-    popularity: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-    },
     poster_path: {
       type: DataTypes.STRING(255),
       allowNull: false,
@@ -67,20 +41,8 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    first_air_date: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-    },
     title: {
       type: DataTypes.STRING(255),
-      allowNull: true,
-    },
-    name: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-    },
-    video: {
-      type: DataTypes.BOOLEAN,
       allowNull: true,
     },
     vote_average: {
@@ -89,14 +51,6 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     vote_count: {
       type: DataTypes.NUMBER,
-      allowNull: false,
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    updated_at: {
-      type: DataTypes.DATE,
       allowNull: false,
     },
   });
