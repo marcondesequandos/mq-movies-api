@@ -3,7 +3,7 @@ import { AddMovieInputDto } from "@/main/dtos/users/add-movie.dto";
 import MovieRepositoryInterface from "./contracts/movie.repository-contract";
 import Movie from "@/application/entities/user/movie";
 
-export default class ListItemRepository implements MovieRepositoryInterface {
+export default class MovieRepository implements MovieRepositoryInterface {
   async create(input: AddMovieInputDto): Promise<Movie> {
     try {
       const movieFromDb = await MovieModel.create({

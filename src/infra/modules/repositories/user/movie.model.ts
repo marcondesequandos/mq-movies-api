@@ -10,14 +10,16 @@ import { ListModel } from "./list.model";
 import { DataTypes } from "sequelize";
 
 @Table({
-  tableName: "list_items",
+  tableName: "movies",
   timestamps: true,
+  createdAt: "created_at",
+  updatedAt: "updated_at",
 })
 export class MovieModel extends Model {
   @PrimaryKey
   @Column({
     allowNull: false,
-    field: "movie_id",
+    field: "movies_id",
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,

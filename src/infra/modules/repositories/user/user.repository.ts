@@ -10,8 +10,6 @@ export default class UserRepository implements UserRepositoryInterface {
       const createdUser = await UserModel.create({
         name: user.name,
         email: user.email,
-        created_at: user.createdAt,
-        updated_at: user.updatedAt,
       });
 
       await Promise.all(
@@ -20,11 +18,11 @@ export default class UserRepository implements UserRepositoryInterface {
             users_id: createdUser.id,
             name: list.name,
             type: list.type,
-            created_at: list.createdAt,
-            updated_at: list.updatedAt,
           })
         )
       );
+
+      return createdUser.toJSON();
     } catch (e) {
       console.log("Error creating User:", e);
     }

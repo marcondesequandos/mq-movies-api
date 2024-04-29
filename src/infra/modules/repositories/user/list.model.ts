@@ -2,19 +2,18 @@ import {
   BelongsTo,
   Column,
   ForeignKey,
-  HasMany,
   Model,
   PrimaryKey,
-  Scopes,
   Table,
 } from "sequelize-typescript";
 import { UserModel } from "./user.model";
-import { ListItemModel } from "./movie.model";
 import { DataTypes } from "sequelize";
 
 @Table({
   tableName: "lists",
-  timestamps: false,
+  timestamps: true,
+  createdAt: "created_at",
+  updatedAt: "updated_at",
 })
 export class ListModel extends Model {
   @PrimaryKey
@@ -44,13 +43,4 @@ export class ListModel extends Model {
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   type: string;
-
-  @HasMany(() => ListItemModel, { as: "list_items" })
-  list_items?: ListItemModel[];
-
-  @Column({ allowNull: false, type: DataTypes.DATE })
-  created_at: Date;
-
-  @Column({ allowNull: false, type: DataTypes.DATE })
-  updated_at: Date;
 }

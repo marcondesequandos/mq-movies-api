@@ -1,18 +1,11 @@
-import {
-  Column,
-  HasMany,
-  Model,
-  PrimaryKey,
-  Table,
-} from "sequelize-typescript";
-import { ListModel } from "./list.model";
+import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { DataTypes } from "sequelize";
-import { ListItemModel } from "./movie.model";
-import internal from "stream";
 
 @Table({
   tableName: "users",
-  timestamps: false,
+  timestamps: true,
+  createdAt: "created_at",
+  updatedAt: "updated_at",
 })
 export class UserModel extends Model {
   @PrimaryKey
@@ -30,9 +23,6 @@ export class UserModel extends Model {
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   email: string;
-
-  @HasMany(() => ListModel, { as: "lists" })
-  lists: ListModel[];
 
   @Column({ allowNull: false, type: DataTypes.DATE })
   created_at: Date;

@@ -1,8 +1,8 @@
 import { join } from "path";
 import { Sequelize } from "sequelize-typescript";
 import {
-  ListItemModel,
   ListModel,
+  MovieModel,
   UserModel,
 } from "../../../infra/modules/repositories/user";
 
@@ -12,7 +12,7 @@ export const sequelize = new Sequelize({
 });
 
 export async function initDB() {
-  await sequelize.addModels([UserModel, ListModel, ListItemModel]);
+  await sequelize.addModels([UserModel, ListModel, MovieModel]);
   sequelize.options.logging = console.log;
 
   try {
