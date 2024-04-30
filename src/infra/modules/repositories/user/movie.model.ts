@@ -58,4 +58,10 @@ export class MovieModel extends Model {
 
   @Column({ allowNull: false, type: DataTypes.NUMBER })
   vote_average: number;
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  created_at: Date;
+
+  @Column({ allowNull: false, type: DataTypes.DATE })
+  updated_at: Date;
 }

@@ -1,11 +1,11 @@
 import User from "@/application/entities/user/user";
 import UserRepositoryInterface from "./contracts/user.repository-contract";
 import { UserModel } from "./user.model";
-import List from "@/application/entities/user/list";
+import List, { ListType } from "@/application/entities/user/list";
 import { ListModel } from "./list.model";
 
 export default class UserRepository implements UserRepositoryInterface {
-  async create(user: User): Promise<void> {
+  async create(user: User): Promise<User> {
     try {
       const createdUser = await UserModel.create({
         name: user.name,

@@ -8,6 +8,6 @@ export interface AddMovieInputDto {
   release_date: string;
   title: string;
   vote_average: number;
-  createdAt?: Date;
-  updatedAt?: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }

@@ -7,8 +7,8 @@ type UserProps = {
   name: string;
   email: string;
   lists: List[];
-  createdAt?: Date;
-  updatedAt?: Date;
+  created_at?: Date;
+  updated_at?: Date;
 };
 
 // precisa verificar aqui, não sei se o user ja vai ser criado com lists...
@@ -19,7 +19,7 @@ export default class User extends BaseEntity implements AggregateRoot {
   private _lists: List[];
 
   constructor(props: UserProps) {
-    super(props.id, props.createdAt, props.updatedAt);
+    super(props.id, props.created_at, props.updated_at);
     this._name = props.name;
     this._email = props.email;
     this._lists = props.lists;

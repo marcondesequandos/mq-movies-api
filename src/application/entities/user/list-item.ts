@@ -7,8 +7,8 @@ type ListItemProps = {
   original_language: string;
   poster_path: string;
   vote_average: number;
-  createdAt?: Date;
-  updatedAt?: Date;
+  created_at?: Date;
+  updated_at?: Date;
 };
 
 export default class ListItem extends BaseEntity implements AggregateRoot {
@@ -18,7 +18,7 @@ export default class ListItem extends BaseEntity implements AggregateRoot {
   private _vote_average: number;
 
   constructor(props: ListItemProps) {
-    super(props.id, props.createdAt, props.updatedAt);
+    super(props.id, props.created_at, props.updated_at);
     this._backdrop_path = props.backdrop_path;
     this._original_language = props.original_language;
     this._poster_path = props.poster_path;

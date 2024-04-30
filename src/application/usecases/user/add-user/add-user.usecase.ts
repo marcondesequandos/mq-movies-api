@@ -7,13 +7,13 @@ import List, { ListType } from "@/application/entities/user/list";
 export default class AddUserUseCase implements AddUserUseCaseInterface {
   constructor(private readonly _userRepository: UserRepositoryInterface) {}
   async run(data: AddUserInputDto): Promise<User> {
-    const user = this.createUser(data);
-    await this._userRepository.create(user);
+    const user = this.createUserWithDefaultLists(data);
+    const userFromDb = await this._userRepository.create(user);
 
-    return user;
+    return userFromDb;
   }
 
-  private createUser(input: AddUserInputDto): User {
+  private createUserWithDefaultLists(input: AddUserInputDto): User {
     return new User({
       name: input.name,
       email: input.email,

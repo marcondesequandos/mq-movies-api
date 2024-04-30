@@ -5,23 +5,18 @@ export class AddUserViewModel {
   id?: number;
   name?: string;
   email?: string;
-  lists?: {
-    id?: number;
-    name: string;
-    type: ListType;
-  }[];
+  created_at?: Date;
+  updated_at?: Date;
 
   static map(user: User): AddUserViewModel {
     if (!user) return {};
 
     const userModel = {
+      id: user.id,
       name: user.name,
       email: user.email,
-      lists: user.lists.map((list) => ({
-        id: list.id,
-        name: list.name,
-        type: list.type,
-      })),
+      created_at: user.created_at,
+      updated_at: user.updated_at,
     };
     return userModel;
   }

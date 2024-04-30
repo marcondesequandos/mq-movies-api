@@ -12,8 +12,8 @@ type ListProps = {
   name: string;
   type: ListType;
   items?: ListItem[];
-  createdAt?: Date;
-  updatedAt?: Date;
+  created_at?: Date;
+  updated_at?: Date;
 };
 
 export default class List extends BaseEntity implements AggregateRoot {
@@ -22,7 +22,7 @@ export default class List extends BaseEntity implements AggregateRoot {
   private _items: ListItem[];
 
   constructor(props: ListProps) {
-    super(props.id, props.createdAt, props.updatedAt);
+    super(props.id, props.created_at, props.updated_at);
     this._name = props.name;
     this._type = props.type;
     this._items = props.items;

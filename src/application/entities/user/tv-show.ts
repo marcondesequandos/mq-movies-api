@@ -10,8 +10,8 @@ type TvShowProps = {
   original_language: string;
   poster_path: string;
   vote_average: number;
-  createdAt?: Date;
-  updatedAt: Date;
+  created_at?: Date;
+  updated_at: Date;
 };
 
 export default class TvShow extends ListItem implements AggregateRoot {

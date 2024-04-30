@@ -4,7 +4,7 @@ export interface AddUserInputDto {
   id?: string;
   name: string;
   email: string;
-  lists: {
+  lists?: {
     id?: number;
     name: string;
     type: ListType;
