@@ -6,8 +6,8 @@ export interface AddTvShowInputDto {
   original_name: string;
   poster_path: string;
   first_air_date: string;
-  title: string;
+  name: string;
   vote_average: number;
   created_at?: Date;
-  updated_at: Date;
+  updated_at?: Date;
 }

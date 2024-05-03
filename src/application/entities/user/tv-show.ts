@@ -3,15 +3,15 @@ import ListItem from "./list-item";
 
 type TvShowProps = {
   id?: number;
-  title: string;
-  original_name: string;
-  first_air_date: string;
   backdrop_path: string;
   original_language: string;
+  original_name: string;
   poster_path: string;
+  first_air_date: string;
+  name: string;
   vote_average: number;
   created_at?: Date;
-  updated_at: Date;
+  updated_at?: Date;
 };
 
 export default class TvShow extends ListItem implements AggregateRoot {
@@ -21,7 +21,7 @@ export default class TvShow extends ListItem implements AggregateRoot {
 
   constructor(props: TvShowProps) {
     super(props);
-    this._name = props.title;
+    this._name = props.name;
     this._original_name = props.original_name;
     this._first_air_date = props.first_air_date;
   }
