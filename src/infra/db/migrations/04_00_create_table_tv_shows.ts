@@ -2,10 +2,10 @@ import { DataTypes, Sequelize } from "sequelize";
 import { MigrationFn } from "umzug";
 
 export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
-  await sequelize.getQueryInterface().createTable("movies", {
+  await sequelize.getQueryInterface().createTable("tv_shows", {
     id: {
       type: DataTypes.INTEGER,
-      field: "movies_id",
+      field: "tv_shows_id",
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
@@ -28,7 +28,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    original_title: {
+    original_name: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
@@ -36,11 +36,11 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.STRING(255),
       allowNull: false,
     },
-    release_date: {
+    first_air_date: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
-    title: {
+    name: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
@@ -60,5 +60,5 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
 };
 
 export const down: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
-  await sequelize.getQueryInterface().dropTable("movies");
+  await sequelize.getQueryInterface().dropTable("tv_shows");
 };

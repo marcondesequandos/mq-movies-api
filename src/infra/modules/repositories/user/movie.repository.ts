@@ -21,7 +21,7 @@ export default class MovieRepository implements MovieRepositoryInterface {
 
       return movie;
     } catch (e) {
-      console.log("Error creating ListItem: ", e);
+      console.log("Error creating Movie: ", e);
     }
   }
 }
