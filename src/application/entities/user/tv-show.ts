@@ -30,11 +30,11 @@ export default class TvShow extends ListItem implements AggregateRoot {
     return this._name;
   }
 
-  public get original_title(): string {
+  public get original_name(): string {
     return this._original_name;
   }
 
-  public get release_date(): string {
+  public get first_air_date(): string {
     return this._first_air_date;
   }
 }
