@@ -9,16 +9,20 @@ export class GetMoviesUsecase implements GetMoviesUsecaseInterface {
   constructor(private readonly moviesService: MoviesDiscoveryService) {}
 
   async run({
+    type,
     page,
     woLanguage,
     sort_by,
     include_adult,
+    vote_count_gte,
   }: MovieParams): Promise<Movie[]> {
     this.moviesData = await this.moviesService.moviesDiscovery({
+      type,
       page,
       woLanguage,
       sort_by,
       include_adult,
+      vote_count_gte,
     });
 
     return this.moviesData;

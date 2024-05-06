@@ -12,17 +12,21 @@ moviesDiscovery.get("/", async function (req: Request, res: Response): Promise<
 > {
   const getMoviesController = makeGetMovies();
 
+  const type = req.query.type;
   const page = parseInt(req.query.page as string, 10);
   const woLanguage = req.query.wol;
   const sort_by = req.query.sort_by;
   const include_adult = req.query.include_adult;
+  const vote_count_gte = parseInt(req.query.vote_count_gte as string, 10);
 
   try {
     const output: GetMoviesViewModel[] = await getMoviesController.handle({
+      type,
       page,
       woLanguage,
       sort_by,
       include_adult,
+      vote_count_gte,
     });
     res.send(output);
   } catch (e) {

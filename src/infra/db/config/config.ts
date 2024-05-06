@@ -5,6 +5,7 @@ import {
   MovieModel,
   UserModel,
 } from "../../../infra/modules/repositories/user";
+import { TvShowModel } from "@/infra/modules/repositories/user/tv-show.model";
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",
@@ -12,7 +13,7 @@ export const sequelize = new Sequelize({
 });
 
 export async function initDB() {
-  await sequelize.addModels([UserModel, ListModel, MovieModel]);
+  await sequelize.addModels([UserModel, ListModel, MovieModel, TvShowModel]);
   sequelize.options.logging = console.log;
 
   try {
