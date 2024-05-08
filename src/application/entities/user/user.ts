@@ -6,7 +6,7 @@ type UserProps = {
   id?: number;
   name: string;
   email: string;
-  lists: List[];
+  lists?: List[];
   created_at?: Date;
   updated_at?: Date;
 };
