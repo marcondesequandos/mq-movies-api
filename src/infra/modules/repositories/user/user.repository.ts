@@ -58,9 +58,7 @@ export default class UserRepository implements UserRepositoryInterface {
 
       return users;
     } catch (e) {
-      // Handle any errors here
-      console.error("Error fetching user data:", e);
-      return []; // Return an empty array or handle the error appropriately
+      console.log("Error retrieving Users:", e);
     }
   }
   update(user: User): Promise<User> {
