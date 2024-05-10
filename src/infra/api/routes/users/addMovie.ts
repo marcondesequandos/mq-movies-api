@@ -1,9 +1,9 @@
-import { makeAddMovie } from "@/main/factories/users/add-movie.factory";
+import { makeAddMovie } from "@/main/factories/users/movies/add-movie.factory";
 import {
   HttpResponse,
   internalServerError,
 } from "@/presentation/contracts/Http";
-import { AddMovieViewModel } from "@/presentation/view-models/users/add-movie.view-model";
+import { AddMovieViewModel } from "@/presentation/view-models/users/movies/add-movie.view-model";
 import express, { Request, Response } from "express";
 
 export const addMovie = express.Router();

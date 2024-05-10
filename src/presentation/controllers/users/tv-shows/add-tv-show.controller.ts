@@ -1,4 +1,4 @@
-import { AddTvShowUseCaseInterface } from "@/application/contracts/usecases/user/add-tv-show.usecase.interface";
+import { AddTvShowUseCaseInterface } from "@/application/contracts/usecases/users/tv-shows/add-tv-show.usecase.interface";
 import { AddTvShowInputDto } from "@/main/dtos/users/add-tv-show.dto";
 import { HttpController } from "@/presentation/contracts/Controller";
 import {
@@ -6,7 +6,7 @@ import {
   internalServerError,
   ok,
 } from "@/presentation/contracts/Http";
-import { AddTvShowViewModel } from "@/presentation/view-models/users/add-tv-show.view-model";
+import { AddTvShowViewModel } from "@/presentation/view-models/users/tv-shows/add-tv-show.view-model";
 
 export class AddTvShowController implements HttpController {
   constructor(private readonly useCase: AddTvShowUseCaseInterface) {}

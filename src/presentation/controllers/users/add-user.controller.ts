@@ -1,4 +1,4 @@
-import { AddUserUseCaseInterface } from "@/application/contracts/usecases/user/adduser-usecase.interface";
+import { AddUserUseCaseInterface } from "@/application/contracts/usecases/users/adduser-usecase.interface";
 import { AddUserInputDto } from "@/main/dtos/users/add-user.dto";
 import { HttpController } from "@/presentation/contracts/Controller";
 import {

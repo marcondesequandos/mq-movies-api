@@ -1,4 +1,4 @@
-import AddUserUseCase from "@/application/usecases/user/add-user/add-user.usecase";
+import AddUserUseCase from "@/application/usecases/users/add-user/add-user.usecase";
 import UserRepository from "@/infra/modules/repositories/user/user.repository";
 import { Controller } from "@/presentation/contracts/Controller";
 import { AddUserController } from "@/presentation/controllers/users/add-user.controller";
