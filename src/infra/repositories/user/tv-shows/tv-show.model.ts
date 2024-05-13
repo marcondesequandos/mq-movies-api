@@ -6,20 +6,20 @@ import {
   PrimaryKey,
   Table,
 } from "sequelize-typescript";
-import { ListModel } from "./list.model";
+import { ListModel } from "../list.model";
 import { DataTypes } from "sequelize";
 
 @Table({
-  tableName: "movies",
+  tableName: "tv_shows",
   timestamps: true,
   createdAt: "created_at",
   updatedAt: "updated_at",
 })
-export class MovieModel extends Model {
+export class TvShowModel extends Model {
   @PrimaryKey
   @Column({
     allowNull: false,
-    field: "movies_id",
+    field: "tv_shows_id",
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -45,16 +45,16 @@ export class MovieModel extends Model {
   original_language: string;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
-  original_title: string;
+  original_name: string;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   poster_path: string;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
-  release_date: string;
+  first_air_date: string;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
-  title: string;
+  name: string;
 
   @Column({ allowNull: false, type: DataTypes.NUMBER })
   vote_average: number;

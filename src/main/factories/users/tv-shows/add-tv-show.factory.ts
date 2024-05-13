@@ -1,5 +1,5 @@
 import AddTvShowUseCase from "@/application/usecases/users/tv-shows/add-tv-show.usecase";
-import TvShowRepository from "@/infra/modules/repositories/user/tv-show.repository";
+import TvShowRepository from "@/infra/repositories/user/tv-shows/tv-show.repository";
 import { Controller } from "@/presentation/contracts/Controller";
 import { AddTvShowController } from "@/presentation/controllers/users/tv-shows/add-tv-show.controller";
 

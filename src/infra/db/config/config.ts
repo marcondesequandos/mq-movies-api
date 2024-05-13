@@ -4,8 +4,8 @@ import {
   ListModel,
   MovieModel,
   UserModel,
-} from "../../../infra/modules/repositories/user";
-import { TvShowModel } from "@/infra/modules/repositories/user/tv-show.model";
+  TvShowModel,
+} from "../../repositories/user";
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",

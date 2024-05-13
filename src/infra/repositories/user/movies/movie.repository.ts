@@ -1,6 +1,6 @@
 import { MovieModel } from "./movie.model";
 import { AddMovieInputDto } from "@/main/dtos/users/add-movie.dto";
-import MovieRepositoryInterface from "./contracts/movie.repository-contract";
+import MovieRepositoryInterface from "../../contracts/movie.repository-contract";
 import Movie from "@/application/entities/user/movie";
 
 export default class MovieRepository implements MovieRepositoryInterface {

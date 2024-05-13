@@ -1,5 +1,5 @@
 import User from "@/application/entities/user/user";
-import UserRepositoryInterface from "./contracts/user.repository-contract";
+import UserRepositoryInterface from "../contracts/user.repository-contract";
 import { UserModel } from "./user.model";
 import List, { ListType } from "@/application/entities/user/list";
 import { ListModel } from "./list.model";
@@ -48,6 +48,7 @@ export default class UserRepository implements UserRepositoryInterface {
             lists: lists.map(
               (list) =>
                 new List({
+                  id: list.id,
                   name: list.name,
                   type: list.type === "movies" ? ListType.MOVIE : ListType.TV,
                 })

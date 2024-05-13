@@ -1,5 +1,5 @@
 import { AddTvShowInputDto } from "@/main/dtos/users/add-tv-show.dto";
-import TvShowRepositoryInterface from "./contracts/tv-show.repository-contract";
+import TvShowRepositoryInterface from "../../contracts/tv-show.repository-contract";
 import TvShow from "@/application/entities/user/tv-show";
 import { TvShowModel } from "./tv-show.model";
 

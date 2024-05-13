@@ -1,7 +1,7 @@
 import { AddUserUseCaseInterface } from "@/application/contracts/usecases/users/adduser-usecase.interface";
 import User from "@/application/entities/user/user";
 import { AddUserInputDto } from "../../../../main/dtos/users/add-user.dto";
-import UserRepositoryInterface from "@/infra/modules/repositories/user/user.repository";
+import UserRepositoryInterface from "@/infra/repositories/user/user.repository";
 import List, { ListType } from "@/application/entities/user/list";
 
 export default class AddUserUseCase implements AddUserUseCaseInterface {

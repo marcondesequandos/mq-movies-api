@@ -1,4 +1,4 @@
-import { UserModel } from "@/infra/modules/repositories/user/user.model";
+import { UserModel } from "@/infra/repositories/user/user.model";
 import { DataTypes, Sequelize } from "sequelize";
 import { MigrationFn } from "umzug";
 

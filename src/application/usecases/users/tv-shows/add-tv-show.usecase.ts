@@ -1,6 +1,6 @@
 import { AddTvShowUseCaseInterface } from "@/application/contracts/usecases/users/tv-shows/add-tv-show.usecase.interface";
 import TvShow from "@/application/entities/user/tv-show";
-import TvShowRepositoryInterface from "@/infra/modules/repositories/user/contracts/tv-show.repository-contract";
+import TvShowRepositoryInterface from "@/infra/repositories/contracts/tv-show.repository-contract";
 import { AddTvShowInputDto } from "@/main/dtos/users/add-tv-show.dto";
 
 export default class AddTvShowUseCase implements AddTvShowUseCaseInterface {
