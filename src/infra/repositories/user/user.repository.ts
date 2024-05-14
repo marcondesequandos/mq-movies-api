@@ -28,8 +28,19 @@ export default class UserRepository implements UserRepositoryInterface {
       console.log("Error creating User:", e);
     }
   }
-  find(id: string): Promise<User> {
-    throw new Error("Method not implemented.");
+  async find(id: number): Promise<User> {
+    try {
+      const userFromDb = await UserModel.findOne({
+        where: { id },
+        include: [ListModel],
+      });
+
+      const user = userFromDb.toJSON();
+
+      return user;
+    } catch (e) {
+      console.log(`UserId ${id} not found.`);
+    }
   }
   async list(): Promise<User[]> {
     try {
