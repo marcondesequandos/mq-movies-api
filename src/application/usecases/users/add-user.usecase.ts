@@ -1,4 +1,4 @@
-import { AddUserUseCaseInterface } from "@/application/contracts/usecases/users/adduser-usecase.interface";
+import { AddUserUseCaseInterface } from "@/application/contracts/usecases/users/add-user-usecase.interface";
 import User from "@/application/entities/user/user";
 import { AddUserInputDto } from "../../../main/dtos/users/add-user.dto";
 import UserRepositoryInterface from "@/infra/repositories/user/user.repository";

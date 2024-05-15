@@ -1,4 +1,4 @@
-import { initDB, sequelize } from "../db/config/config";
+import { initDB } from "../db/config/config";
 import { app } from "./express";
 import dotenv from "dotenv";
 
