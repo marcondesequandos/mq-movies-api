@@ -30,11 +30,26 @@ export default class UserRepository implements UserRepositoryInterface {
   async find(id: number): Promise<User> {
     try {
       const userFromDb = await UserModel.findOne({
-        where: { id },
-        include: [ListModel],
+        where: { users_id: id },
       });
 
-      const user = userFromDb.toJSON();
+      const lists = await ListModel.findAll({
+        where: { users_id: userFromDb.id },
+      });
+
+      const user = new User({
+        id: userFromDb.id,
+        name: userFromDb.name,
+        email: userFromDb.email,
+        lists: lists.map(
+          (list) =>
+            new List({
+              id: list.id,
+              name: list.name,
+              type: list.type === "movies" ? ListType.MOVIE : ListType.TV,
+            })
+        ),
+      });
 
       return user;
     } catch (e) {
