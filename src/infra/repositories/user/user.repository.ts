@@ -3,6 +3,7 @@ import UserRepositoryInterface from "../contracts/user.repository-contract";
 import { UserModel } from "./user.model";
 import List, { ListType } from "@/application/entities/user/list";
 import { ListModel } from "./list.model";
+import { UserNotFoundError } from "@/application/errors/users/user-not-found.error";
 
 export default class UserRepository implements UserRepositoryInterface {
   async create(user: User): Promise<User> {
@@ -53,7 +54,7 @@ export default class UserRepository implements UserRepositoryInterface {
 
       return user;
     } catch (e) {
-      console.log(`User not found.`);
+      throw new UserNotFoundError();
     }
   }
   async list(): Promise<User[]> {
