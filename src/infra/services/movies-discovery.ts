@@ -13,7 +13,14 @@ export class MoviesDiscoveryService implements DiscoverService {
     include_adult,
     vote_count_gte,
   }: MovieParams): Promise<Movie[]> {
-    const url = this.getUrl(type, page, sort_by, include_adult, vote_count_gte);
+    const url = this.getUrl({
+      type,
+      page,
+      sort_by,
+      include_adult,
+      vote_count_gte,
+      woLanguage,
+    });
 
     //Filtros para trabalhar:
 
@@ -53,22 +60,18 @@ export class MoviesDiscoveryService implements DiscoverService {
     return woLanguage;
   };
 
-  private getUrl = (
-    type?: string,
-    page?: number,
-    sort_by?: string,
-    include_adult?: string,
-    vote_count_gte?: number
-  ): string => {
-    if (!page && !sort_by && !include_adult && !vote_count_gte) {
-      return `${process.env.API_URL}/${type}`;
-    } else {
-      const params = [];
-      if (page) params.push(`page=${page}`);
-      if (sort_by) params.push(`sort_by=${sort_by}`);
-      if (include_adult) params.push(`include_adult=${include_adult}`);
-      if (vote_count_gte) params.push(`vote_count.gte=${vote_count_gte}`);
-      return `${process.env.API_URL}/${type}?${params.join("&")}`;
+  private getUrl = (config: MovieParams): string => {
+    const params: Record<string, any> = {};
+    for (const key in config) {
+      if (config[key]) {
+        params[key] = config[key];
+      }
     }
+
+    const queryString = Object.keys(params)
+      .map((key) => `${key}=${params[key]}`)
+      .join("&");
+
+    return `${process.env.API_URL}/${config.type}?${queryString}`;
   };
 }
