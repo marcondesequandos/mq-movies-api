@@ -1,6 +1,8 @@
 import AggregateRoot from "../aggregate-root.interface";
 import BaseEntity from "../base.entity";
+import Movie from "../user/movie";
 import ListItem from "./list-item";
+import TvShow from "./tv-show";
 
 export enum ListType {
   MOVIE = "movies",
@@ -11,7 +13,7 @@ type ListProps = {
   id?: number;
   name: string;
   type: ListType;
-  items?: ListItem[];
+  items?: Movie[] | TvShow[];
   created_at?: Date;
   updated_at?: Date;
 };
@@ -19,7 +21,7 @@ type ListProps = {
 export default class List extends BaseEntity implements AggregateRoot {
   private _name: string;
   private _type: ListType;
-  private _items: ListItem[];
+  private _items: Movie[] | TvShow[];
 
   constructor(props: ListProps) {
     super(props.id, props.created_at, props.updated_at);
@@ -36,7 +38,7 @@ export default class List extends BaseEntity implements AggregateRoot {
     return this._type;
   }
 
-  get items(): Array<ListItem> {
+  get items(): Array<Movie | TvShow> {
     return this._items;
   }
 
