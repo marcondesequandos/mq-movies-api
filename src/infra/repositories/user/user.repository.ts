@@ -2,8 +2,8 @@ import User from "@/application/entities/user/user";
 import UserRepositoryInterface from "../contracts/user.repository-contract";
 import { UserModel } from "./user.model";
 import List, { ListType } from "@/application/entities/user/list";
-import { ListModel } from "./list.model";
-import { UserNotFoundError } from "@/application/errors/users/user-not-found.error";
+import { ListModel } from "./user-lists/list.model";
+import { NotFoundError } from "@/application/errors/users/user-not-found.error";
 
 export default class UserRepository implements UserRepositoryInterface {
   async create(user: User): Promise<User> {
@@ -54,7 +54,7 @@ export default class UserRepository implements UserRepositoryInterface {
 
       return user;
     } catch (e) {
-      throw new UserNotFoundError();
+      throw new NotFoundError("User");
     }
   }
   async list(): Promise<User[]> {

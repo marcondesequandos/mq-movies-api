@@ -1,6 +1,6 @@
-export class UserNotFoundError extends Error {
-  constructor(msg?: string) {
-    super(msg || "User not found");
-    this.name = "UserNotFoundError";
+export class NotFoundError extends Error {
+  constructor(entity?: string) {
+    super(`${entity} not found.`);
+    this.name = "NotFoundError";
   }
 }

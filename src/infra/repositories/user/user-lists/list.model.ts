@@ -6,7 +6,7 @@ import {
   PrimaryKey,
   Table,
 } from "sequelize-typescript";
-import { UserModel } from "./user.model";
+import { UserModel } from "../index";
 import { DataTypes } from "sequelize";
 
 @Table({
