@@ -1,6 +1,6 @@
 import { FindUserUseCaseInterface } from "@/application/contracts/usecases/users/find-user-usecase.interface";
 import User from "@/application/entities/user/user";
-import { UserNotFoundError } from "@/application/errors/users/user-not-found.error";
+import { NotFoundError } from "@/application/errors/users/user-not-found.error";
 import UserRepositoryInterface from "@/infra/repositories/contracts/user.repository-contract";
 
 export class FindUserUseCase implements FindUserUseCaseInterface {
@@ -8,7 +8,7 @@ export class FindUserUseCase implements FindUserUseCaseInterface {
   async run(id: number): Promise<User> {
     const user = this._userRepository.find(id);
 
-    if (!user) throw new UserNotFoundError();
+    if (!user) throw new NotFoundError("User");
 
     return user;
   }
