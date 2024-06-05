@@ -2,7 +2,7 @@ import List from "@/application/entities/user/list";
 import Movie from "@/application/entities/user/movie";
 import TvShow from "@/application/entities/user/tv-show";
 
-export class FindListViewModel {
+export class FindUserListViewModel {
   id?: number;
   name?: string;
   type?: string;
@@ -21,7 +21,7 @@ export class FindListViewModel {
   }[];
   created_at?: Date;
   updated_at?: Date;
-  static map(list: List | null): FindListViewModel {
+  static map(list: List | null): FindUserListViewModel {
     if (!list) return {};
 
     const listModel = {

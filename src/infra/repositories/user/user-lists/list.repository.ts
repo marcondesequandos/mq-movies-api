@@ -1,13 +1,12 @@
 import List, { ListType } from "@/application/entities/user/list";
-import ListRepositoryInterface from "../../contracts/list.repository-contract";
 import { ListModel, MovieModel, TvShowModel } from "..";
-
 import Movie from "@/application/entities/user/movie";
 import TvShow from "@/application/entities/user/tv-show";
 import { NotFoundError } from "@/application/errors/users/user-not-found.error";
+import UserListRepositoryInterface from "../../contracts/list.repository-contract";
 
-export default class ListRepository implements ListRepositoryInterface {
-  create(list: List): Promise<List> {
+export default class UserListRepository implements UserListRepositoryInterface {
+  create(userList: List): Promise<List> {
     throw new Error("Method not implemented.");
   }
   async find(id: number): Promise<List> {

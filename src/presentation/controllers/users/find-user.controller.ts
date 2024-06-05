@@ -1,5 +1,5 @@
 import { FindUserUseCaseInterface } from "@/application/contracts/usecases/users/find-user-usecase.interface";
-import { UserNotFoundError } from "@/application/errors/users/user-not-found.error";
+import { NotFoundError } from "@/application/errors/users/user-not-found.error";
 import { HttpController } from "@/presentation/contracts/Controller";
 import { HttpResponse, notFound, ok } from "@/presentation/contracts/Http";
 import { FindUserViewModel } from "@/presentation/view-models/users/find-user.view-model";
@@ -13,7 +13,7 @@ export class FindUserController implements HttpController {
       return ok(response);
     } catch (e) {
       console.error("Error finding User", e);
-      if (e instanceof UserNotFoundError) return notFound(e.message);
+      if (e instanceof NotFoundError) return notFound(e.message);
     }
   }
 }
