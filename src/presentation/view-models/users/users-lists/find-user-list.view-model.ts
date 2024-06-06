@@ -1,4 +1,4 @@
-import List from "@/application/entities/user/list";
+import UserList from "@/application/entities/user/user-list";
 import Movie from "@/application/entities/user/movie";
 import TvShow from "@/application/entities/user/tv-show";
 
@@ -21,7 +21,7 @@ export class FindUserListViewModel {
   }[];
   created_at?: Date;
   updated_at?: Date;
-  static map(list: List | null): FindUserListViewModel {
+  static map(list: UserList | null): FindUserListViewModel {
     if (!list) return {};
 
     const listModel = {
@@ -44,7 +44,7 @@ export class FindUserListViewModel {
     };
     return listModel;
   }
-  // static map(list: List | null): FindListViewModel {
+  // static map(list: UserList | null): FindListViewModel {
   //   if (!list) return {};
 
   //   const listModel = {

@@ -1,4 +1,4 @@
-import { ListType } from "@/application/entities/user/list";
+import { ListType } from "@/application/entities/user/user-list";
 
 export interface AddUserInputDto {
   id?: string;

@@ -1,12 +1,12 @@
 import BaseEntity from "../base.entity";
 import AggregateRoot from "../aggregate-root.interface";
-import List from "./list";
+import UserList from "./user-list";
 
 type UserProps = {
   id?: number;
   name: string;
   email: string;
-  lists?: List[];
+  lists?: UserList[];
   created_at?: Date;
   updated_at?: Date;
 };
@@ -16,7 +16,7 @@ type UserProps = {
 export default class User extends BaseEntity implements AggregateRoot {
   private _name: string;
   private _email: string;
-  private _lists: List[];
+  private _lists: UserList[];
 
   constructor(props: UserProps) {
     super(props.id, props.created_at, props.updated_at);
@@ -33,7 +33,7 @@ export default class User extends BaseEntity implements AggregateRoot {
     return this._email;
   }
 
-  get lists(): Array<List> {
+  get lists(): Array<UserList> {
     return this._lists;
   }
 

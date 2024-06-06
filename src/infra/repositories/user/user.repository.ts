@@ -1,7 +1,7 @@
 import User from "@/application/entities/user/user";
 import UserRepositoryInterface from "../contracts/user.repository-contract";
 import { UserModel } from "./user.model";
-import List, { ListType } from "@/application/entities/user/list";
+import UserList, { ListType } from "@/application/entities/user/user-list";
 import { ListModel } from "./user-lists/list.model";
 import { NotFoundError } from "@/application/errors/users/user-not-found.error";
 
@@ -14,7 +14,7 @@ export default class UserRepository implements UserRepositoryInterface {
       });
 
       await Promise.all(
-        user.lists.map((list: List) =>
+        user.lists.map((list: UserList) =>
           ListModel.create({
             users_id: createdUser.id,
             name: list.name,
@@ -44,7 +44,7 @@ export default class UserRepository implements UserRepositoryInterface {
         email: userFromDb.email,
         lists: lists.map(
           (list) =>
-            new List({
+            new UserList({
               id: list.id,
               name: list.name,
               type: list.type === "movies" ? ListType.MOVIE : ListType.TV,
@@ -73,7 +73,7 @@ export default class UserRepository implements UserRepositoryInterface {
             email: user.email,
             lists: lists.map(
               (list) =>
-                new List({
+                new UserList({
                   id: list.id,
                   name: list.name,
                   type: list.type === "movies" ? ListType.MOVIE : ListType.TV,

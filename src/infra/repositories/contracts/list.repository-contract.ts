@@ -1,6 +1,6 @@
-import List from "@/application/entities/user/list";
+import UserList from "@/application/entities/user/user-list";
 
 export default interface UserListRepositoryInterface {
-  create(list: List): Promise<List>;
-  find(id: number): Promise<List>;
+  create(list: UserList): Promise<UserList>;
+  find(id: number): Promise<UserList>;
 }

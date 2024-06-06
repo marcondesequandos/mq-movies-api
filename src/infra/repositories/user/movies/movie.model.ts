@@ -36,7 +36,7 @@ export class MovieModel extends Model {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   })
-  List: ListModel;
+  UserList: ListModel;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   backdrop_path: string;

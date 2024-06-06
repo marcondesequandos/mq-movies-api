@@ -1,5 +1,5 @@
-import List from "@/application/entities/user/list";
+import UserList from "@/application/entities/user/user-list";
 
 export interface FindUserListUseCaseInterface {
-  run(id: number): Promise<List>;
+  run(id: number): Promise<UserList>;
 }

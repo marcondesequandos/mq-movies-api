@@ -1,7 +1,6 @@
 import AggregateRoot from "../aggregate-root.interface";
 import BaseEntity from "../base.entity";
-import Movie from "../user/movie";
-import ListItem from "./list-item";
+import Movie from "./movie";
 import TvShow from "./tv-show";
 
 export enum ListType {
@@ -9,7 +8,7 @@ export enum ListType {
   TV = "tv_shows",
 }
 
-type ListProps = {
+type UserListProps = {
   id?: number;
   name: string;
   type: ListType;
@@ -18,12 +17,12 @@ type ListProps = {
   updated_at?: Date;
 };
 
-export default class List extends BaseEntity implements AggregateRoot {
+export default class UserList extends BaseEntity implements AggregateRoot {
   private _name: string;
   private _type: ListType;
   private _items: Movie[] | TvShow[];
 
-  constructor(props: ListProps) {
+  constructor(props: UserListProps) {
     super(props.id, props.created_at, props.updated_at);
     this._name = props.name;
     this._type = props.type;

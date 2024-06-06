@@ -2,7 +2,7 @@ import { AddUserUseCaseInterface } from "@/application/contracts/usecases/users/
 import User from "@/application/entities/user/user";
 import { AddUserInputDto } from "../../../main/dtos/users/add-user.dto";
 import UserRepositoryInterface from "@/infra/repositories/user/user.repository";
-import List, { ListType } from "@/application/entities/user/list";
+import UserList, { ListType } from "@/application/entities/user/user-list";
 
 export default class AddUserUseCase implements AddUserUseCaseInterface {
   constructor(private readonly _userRepository: UserRepositoryInterface) {}
@@ -18,8 +18,8 @@ export default class AddUserUseCase implements AddUserUseCaseInterface {
       name: input.name,
       email: input.email,
       lists: [
-        new List({ name: "Filmes assistidos", type: ListType.MOVIE }),
-        new List({ name: "Séries assistidas", type: ListType.TV }),
+        new UserList({ name: "Filmes assistidos", type: ListType.MOVIE }),
+        new UserList({ name: "Séries assistidas", type: ListType.TV }),
       ],
     });
   }

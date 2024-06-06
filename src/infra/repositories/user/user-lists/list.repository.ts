@@ -1,4 +1,4 @@
-import List, { ListType } from "@/application/entities/user/list";
+import UserList, { ListType } from "@/application/entities/user/user-list";
 import { ListModel, MovieModel, TvShowModel } from "..";
 import Movie from "@/application/entities/user/movie";
 import TvShow from "@/application/entities/user/tv-show";
@@ -6,10 +6,10 @@ import { NotFoundError } from "@/application/errors/users/user-not-found.error";
 import UserListRepositoryInterface from "../../contracts/list.repository-contract";
 
 export default class UserListRepository implements UserListRepositoryInterface {
-  create(userList: List): Promise<List> {
+  create(userList: UserList): Promise<UserList> {
     throw new Error("Method not implemented.");
   }
-  async find(id: number): Promise<List> {
+  async find(id: number): Promise<UserList> {
     try {
       const listFromDb = await ListModel.findOne({
         where: { list_id: id },
@@ -25,7 +25,7 @@ export default class UserListRepository implements UserListRepositoryInterface {
             where: { lists_id: listFromDb.id },
           });
 
-      const list = new List({
+      const list = new UserList({
         id: listFromDb.id,
         name: listFromDb.name,
         type: moviesList ? ListType.MOVIE : ListType.TV,
@@ -60,7 +60,7 @@ export default class UserListRepository implements UserListRepositoryInterface {
 
       return list;
     } catch (e) {
-      throw new NotFoundError("List");
+      throw new NotFoundError("UserList");
     }
   }
 }
