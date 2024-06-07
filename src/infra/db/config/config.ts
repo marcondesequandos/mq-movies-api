@@ -1,7 +1,7 @@
 import { join } from "path";
 import { Sequelize } from "sequelize-typescript";
 import {
-  ListModel,
+  UserListModel,
   MovieModel,
   UserModel,
   TvShowModel,
@@ -13,7 +13,12 @@ export const sequelize = new Sequelize({
 });
 
 export async function initDB() {
-  await sequelize.addModels([UserModel, ListModel, MovieModel, TvShowModel]);
+  await sequelize.addModels([
+    UserModel,
+    UserListModel,
+    MovieModel,
+    TvShowModel,
+  ]);
   sequelize.options.logging = console.log;
 
   try {

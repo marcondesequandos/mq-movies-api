@@ -15,7 +15,7 @@ import { DataTypes } from "sequelize";
   createdAt: "created_at",
   updatedAt: "updated_at",
 })
-export class ListModel extends Model {
+export class UserListModel extends Model {
   @PrimaryKey
   @Column({
     allowNull: false,

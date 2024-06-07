@@ -2,7 +2,7 @@ import User from "@/application/entities/user/user";
 import UserRepositoryInterface from "../contracts/user.repository-contract";
 import { UserModel } from "./user.model";
 import UserList, { ListType } from "@/application/entities/user/user-list";
-import { ListModel } from "./user-lists/list.model";
+import { UserListModel } from "./user-lists/user-list.model";
 import { NotFoundError } from "@/application/errors/users/user-not-found.error";
 
 export default class UserRepository implements UserRepositoryInterface {
@@ -15,7 +15,7 @@ export default class UserRepository implements UserRepositoryInterface {
 
       await Promise.all(
         user.lists.map((list: UserList) =>
-          ListModel.create({
+          UserListModel.create({
             users_id: createdUser.id,
             name: list.name,
             type: list.type,
@@ -34,7 +34,7 @@ export default class UserRepository implements UserRepositoryInterface {
         where: { users_id: id },
       });
 
-      const lists = await ListModel.findAll({
+      const lists = await UserListModel.findAll({
         where: { users_id: userFromDb.id },
       });
 
@@ -63,7 +63,7 @@ export default class UserRepository implements UserRepositoryInterface {
 
       const users = await Promise.all(
         usersFromDb.map(async (user) => {
-          const lists = await ListModel.findAll({
+          const lists = await UserListModel.findAll({
             where: { users_id: user.id },
           });
 

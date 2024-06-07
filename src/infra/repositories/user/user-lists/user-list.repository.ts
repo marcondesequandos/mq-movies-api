@@ -1,5 +1,5 @@
 import UserList, { ListType } from "@/application/entities/user/user-list";
-import { ListModel, MovieModel, TvShowModel } from "..";
+import { UserListModel, MovieModel, TvShowModel } from "..";
 import Movie from "@/application/entities/user/movie";
 import TvShow from "@/application/entities/user/tv-show";
 import { NotFoundError } from "@/application/errors/users/user-not-found.error";
@@ -11,7 +11,7 @@ export default class UserListRepository implements UserListRepositoryInterface {
   }
   async find(id: number): Promise<UserList> {
     try {
-      const listFromDb = await ListModel.findOne({
+      const listFromDb = await UserListModel.findOne({
         where: { list_id: id },
       });
 

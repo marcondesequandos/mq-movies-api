@@ -6,7 +6,7 @@ import {
   PrimaryKey,
   Table,
 } from "sequelize-typescript";
-import { ListModel } from "../list.model";
+import { UserListModel } from "../list.model";
 import { DataTypes } from "sequelize";
 
 @Table({
@@ -26,17 +26,17 @@ export class TvShowModel extends Model {
   })
   id: number;
 
-  @ForeignKey(() => ListModel)
+  @ForeignKey(() => UserListModel)
   @Column({ allowNull: false, type: DataTypes.INTEGER })
   lists_id: number;
 
-  @BelongsTo(() => ListModel, {
+  @BelongsTo(() => UserListModel, {
     foreignKey: "lists_id",
     as: "lists",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   })
-  UserList: ListModel;
+  UserList: UserListModel;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   backdrop_path: string;

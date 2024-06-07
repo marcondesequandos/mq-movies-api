@@ -1,5 +1,5 @@
 import { FindUserListUseCase } from "@/application/usecases/users/users-lists/find-user-list.usecase";
-import UserListRepository from "@/infra/repositories/user/user-lists/list.repository";
+import UserListRepository from "@/infra/repositories/user/user-lists/user-list.repository";
 import { Controller } from "@/presentation/contracts/Controller";
 import { FindUserListController } from "@/presentation/controllers/users/users-lists/find-user-list.controller";
 
