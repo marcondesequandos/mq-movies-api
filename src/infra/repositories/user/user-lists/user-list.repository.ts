@@ -12,7 +12,7 @@ export default class UserListRepository implements UserListRepositoryInterface {
   async find(id: number): Promise<UserList> {
     try {
       const listFromDb = await UserListModel.findOne({
-        where: { list_id: id },
+        where: { lists_id: id },
       });
 
       const moviesList = listFromDb.type === "movies";

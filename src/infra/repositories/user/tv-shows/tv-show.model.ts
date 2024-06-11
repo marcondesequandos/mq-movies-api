@@ -6,8 +6,9 @@ import {
   PrimaryKey,
   Table,
 } from "sequelize-typescript";
-import { UserListModel } from "../list.model";
+
 import { DataTypes } from "sequelize";
+import { UserListModel } from "..";
 
 @Table({
   tableName: "tv_shows",
