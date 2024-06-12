@@ -11,6 +11,7 @@ export enum ListType {
 type UserListProps = {
   id?: number;
   name: string;
+  description?: string;
   type: ListType;
   items?: Movie[] | TvShow[];
   created_at?: Date;
