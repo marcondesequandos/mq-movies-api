@@ -20,18 +20,23 @@ type UserListProps = {
 
 export default class UserList extends BaseEntity implements AggregateRoot {
   private _name: string;
+  private _description: string;
   private _type: ListType;
   private _items: Movie[] | TvShow[];
 
   constructor(props: UserListProps) {
     super(props.id, props.created_at, props.updated_at);
     this._name = props.name;
+    this._description = props.description;
     this._type = props.type;
     this._items = props.items;
   }
 
   get name(): string {
     return this._name;
+  }
+  get description(): string {
+    return this._description;
   }
 
   get type(): ListType {
