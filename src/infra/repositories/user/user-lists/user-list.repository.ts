@@ -29,6 +29,7 @@ export default class UserListRepository implements UserListRepositoryInterface {
         id: listFromDb.id,
         name: listFromDb.name,
         type: moviesList ? ListType.MOVIE : ListType.TV,
+        description: listFromDb.description,
         items: moviesList
           ? items.map(
               (movie) =>

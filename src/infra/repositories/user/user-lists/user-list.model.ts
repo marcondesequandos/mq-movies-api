@@ -42,5 +42,8 @@ export class UserListModel extends Model {
   name: string;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
+  description: string;
+
+  @Column({ allowNull: false, type: DataTypes.STRING })
   type: string;
 }
