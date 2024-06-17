@@ -1,8 +1,8 @@
-import UserList from "@/application/entities/user/user-list";
 import Movie from "@/application/entities/user/movie";
 import TvShow from "@/application/entities/user/tv-show";
+import UserList from "@/application/entities/user/user-list";
 
-export class FindUserListViewModel {
+export class CreateUserListViewModel {
   id?: number;
   name?: string;
   type?: string;
@@ -22,7 +22,7 @@ export class FindUserListViewModel {
   }[];
   created_at?: Date;
   updated_at?: Date;
-  static map(list: UserList | null): FindUserListViewModel {
+  static map(list: UserList | null): CreateUserListViewModel {
     if (!list) return {};
 
     const listModel = {
