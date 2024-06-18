@@ -7,6 +7,7 @@ export class FindUserViewModel {
   lists?: {
     id?: number;
     name?: string;
+    description?: string;
     type?: string;
   }[];
   created_at?: Date;
@@ -22,6 +23,7 @@ export class FindUserViewModel {
       lists: user.lists.map((list) => ({
         id: list.id,
         name: list.name,
+        description: list.description,
         type: list.type,
       })),
       created_at: user.created_at,

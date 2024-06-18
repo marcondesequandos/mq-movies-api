@@ -7,6 +7,7 @@ export class ListUsersViewModel {
   lists?: {
     id?: number;
     name?: string;
+    description?: string;
   }[];
   created_at?: Date;
   updated_at?: Date;
@@ -21,6 +22,7 @@ export class ListUsersViewModel {
       lists: user.lists.map((list) => ({
         id: list.id,
         name: list.name,
+        description: list.description,
       })),
       created_at: user.created_at,
       updated_at: user.updated_at,

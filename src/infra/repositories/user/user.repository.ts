@@ -18,6 +18,7 @@ export default class UserRepository implements UserRepositoryInterface {
           UserListModel.create({
             users_id: createdUser.id,
             name: list.name,
+            description: list.description,
             type: list.type,
           })
         )
@@ -47,6 +48,7 @@ export default class UserRepository implements UserRepositoryInterface {
             new UserList({
               id: list.id,
               name: list.name,
+              description: list.description,
               type: list.type === "movies" ? ListType.MOVIE : ListType.TV,
             })
         ),
@@ -76,6 +78,7 @@ export default class UserRepository implements UserRepositoryInterface {
                 new UserList({
                   id: list.id,
                   name: list.name,
+                  description: list.description,
                   type: list.type === "movies" ? ListType.MOVIE : ListType.TV,
                 })
             ),

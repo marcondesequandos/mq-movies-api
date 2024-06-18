@@ -1,11 +1,11 @@
-import { DataTypes, Sequelize } from "sequelize";
-import { MigrationFn } from "umzug";
+import { DataTypes, Sequelize } from 'sequelize';
+import { MigrationFn } from 'umzug';
 
 export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
-  await sequelize.getQueryInterface().createTable("lists", {
+  await sequelize.getQueryInterface().createTable('lists', {
     id: {
       type: DataTypes.INTEGER,
-      field: "lists_id",
+      field: 'lists_id',
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
@@ -14,11 +14,11 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "users",
-        key: "users_id",
+        model: 'users',
+        key: 'users_id',
       },
-      onUpdate: "CASCADE",
-      onDelete: "CASCADE",
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
     },
     name: {
       type: DataTypes.STRING(255),
@@ -26,7 +26,7 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     description: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     type: {
       type: DataTypes.STRING(8),
@@ -44,5 +44,5 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
 };
 
 export const down: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
-  await sequelize.getQueryInterface().dropTable("lists");
+  await sequelize.getQueryInterface().dropTable('lists');
 };

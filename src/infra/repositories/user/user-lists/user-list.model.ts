@@ -5,21 +5,21 @@ import {
   Model,
   PrimaryKey,
   Table,
-} from "sequelize-typescript";
-import { UserModel } from "../index";
-import { DataTypes } from "sequelize";
+} from 'sequelize-typescript';
+import { UserModel } from '../index';
+import { DataTypes } from 'sequelize';
 
 @Table({
-  tableName: "lists",
+  tableName: 'lists',
   timestamps: true,
-  createdAt: "created_at",
-  updatedAt: "updated_at",
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 })
 export class UserListModel extends Model {
   @PrimaryKey
   @Column({
     allowNull: false,
-    field: "lists_id",
+    field: 'lists_id',
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -31,17 +31,17 @@ export class UserListModel extends Model {
   users_id: number;
 
   @BelongsTo(() => UserModel, {
-    foreignKey: "users_id",
-    as: "users",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
+    foreignKey: 'users_id',
+    as: 'users',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
   })
   User: UserModel;
 
   @Column({ allowNull: false, type: DataTypes.STRING })
   name: string;
 
-  @Column({ allowNull: false, type: DataTypes.STRING })
+  @Column({ allowNull: true, type: DataTypes.STRING })
   description: string;
 
   @Column({ allowNull: false, type: DataTypes.STRING })

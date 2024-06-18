@@ -18,8 +18,8 @@ export default class AddUserUseCase implements AddUserUseCaseInterface {
       name: input.name,
       email: input.email,
       lists: [
-        new UserList({ name: "Filmes assistidos", type: ListType.MOVIE }),
-        new UserList({ name: "Séries assistidas", type: ListType.TV }),
+        new UserList({ name: "Filmes assistidos", description: `Filmes assistidos por ${input.name}`, type: ListType.MOVIE }),
+        new UserList({ name: "Séries assistidas", description: `Séries assistidas por ${input.name}`, type: ListType.TV }),
       ],
     });
   }
