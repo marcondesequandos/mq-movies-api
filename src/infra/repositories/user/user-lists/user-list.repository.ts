@@ -1,13 +1,23 @@
-import UserList, { ListType } from "@/application/entities/user/user-list";
-import { UserListModel, MovieModel, TvShowModel } from "..";
-import Movie from "@/application/entities/user/movie";
-import TvShow from "@/application/entities/user/tv-show";
-import { NotFoundError } from "@/application/errors/users/user-not-found.error";
-import UserListRepositoryInterface from "../../contracts/list.repository-contract";
+import UserList, { ListType } from '@/application/entities/user/user-list';
+import { UserListModel, MovieModel, TvShowModel } from '..';
+import Movie from '@/application/entities/user/movie';
+import TvShow from '@/application/entities/user/tv-show';
+import { NotFoundError } from '@/application/errors/users/user-not-found.error';
+import UserListRepositoryInterface from '../../contracts/user-list.repository-contract';
 
 export default class UserListRepository implements UserListRepositoryInterface {
-  create(userList: UserList): Promise<UserList> {
-    throw new Error("Method not implemented.");
+  async create(userList: UserList): Promise<UserList> {
+    try {
+      const createdUserList = await UserListModel.create({
+        name: userList.name,
+        description: userList.description,
+        type: userList.type,
+      });
+
+      return createdUserList.toJSON();
+    } catch (e) {
+      console.log('Error creating UserList:', e);
+    }
   }
   async find(id: number): Promise<UserList> {
     try {
@@ -15,7 +25,7 @@ export default class UserListRepository implements UserListRepositoryInterface {
         where: { lists_id: id },
       });
 
-      const moviesList = listFromDb.type === "movies";
+      const moviesList = listFromDb.type === 'movies';
 
       const items = moviesList
         ? await MovieModel.findAll({
@@ -61,7 +71,7 @@ export default class UserListRepository implements UserListRepositoryInterface {
 
       return list;
     } catch (e) {
-      throw new NotFoundError("UserList");
+      throw new NotFoundError('UserList');
     }
   }
 }
